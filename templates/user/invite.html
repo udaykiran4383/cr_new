@@ -1,0 +1,84 @@
+
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CR | Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/black1.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+  {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible text-center" style="margin-bottom: 0px;" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Error{% else %}{{ message.tags|title }}{% endif %}!</strong> {{ message }}
+          </div>
+  {% endfor %}
+  
+    <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Home</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="{% url 'leaderboard' %}">Leaderboard</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="{% url 'teamLeaderboard' %}">Team Leaderboard</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="{% url 'team' %}">Team</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link active" href="">Invites</a>
+            </li>
+            
+        </ul>
+        <div class="d-flex" role="search">
+          <div class="btn btn-success ">CR ID:{{cr_id}}</div>
+          <a href="profile" class="btn btn-outline-success mx-3">Profile</a>
+          <a href="{% url 'account_logout' %}" class="btn btn-outline-success">Logout</a>
+        </div>
+        </div>
+    </div>
+    </nav>
+    {% if in_team == True %}
+      <h4>You are already in a team. You will no longer be able to get team formation request</h4>
+    {% else %}
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Sent by </th>
+        <th scope="col" colspan="2">status </th>
+
+      </tr>
+    </thead>
+    <tbody>
+        {% for invite in invite %}
+                
+        <tr>
+          <th>{{ forloop.counter }}</th>
+          <td>{{ invite.sender_name}}</td>
+          <td><a href="{% url 'accept' id invite.sender %}"><button class="btn btn-primary">Accept</button></a></td>
+          <td><button class="btn btn-primary">Decline</button></td>
+
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+  </table>
+    {% endif %}
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>

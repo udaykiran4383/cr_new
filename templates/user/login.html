@@ -1,0 +1,33 @@
+
+    <div class="reg-outer-container">
+    
+            <div class="l-reg-inner-container">
+                <div class="l-form">
+                    <form action="/login" method="post">
+                        <div class="inner-form">
+                           
+                            {% csrf_token %}
+                            <!-- <label for="">Username</label> -->
+                            <input type="text" id="username" name ="username" placeholder="Enter Your username" required>
+                            <br>
+                            <!-- <label for="">Name</label> -->
+                            <input type="password" id="pass1" name ="pass1" placeholder="Enter Your Password" required>   
+                            <br>
+                            <div class="signup">
+                                <button type="submit" class="custom-btn btn-11"> Login</button>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    <br>
+                </div>
+            </div>
+            
+        
+      
+    </div>
+
+       
+   
+       
+       

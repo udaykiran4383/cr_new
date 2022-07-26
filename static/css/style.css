@@ -1,0 +1,659 @@
+@font-face {
+    font-family: Highman Trial;
+    src: url(../fonts/Highman.ttf);
+}
+
+#c {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 500vh;
+    display: block;
+    z-index: -1;
+    background: black;
+  }
+
+  .row{
+    --bs-gutter-x: 0;
+  }
+
+.cont{
+    border: 2px solid #7968FF;
+    overflow-x: hidden;
+    margin: 3vh 6vw;
+    border-radius: 1.5vh;
+    padding: 1.5vh;
+}
+.cust{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: white;
+    z-index: 2;
+    font-family: 'Lato', sans-serif;
+}
+
+.tabs{
+    color: white;
+   font-size: 2.5vh;
+   margin: 0 3vh;
+}
+
+.contain{
+    margin-top: 8vh;
+    overflow-x: hidden;
+}
+
+.uphead{
+    font-family: Highman Trial;
+    color: white;
+    font-size: 18vh;
+    margin: 1vh 6vw ;
+    line-height: 14.5vh;
+}
+
+.sub-head{
+    margin: 0 6vw;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    line-height: 3vh;
+    font-size: 2.5vh;
+    width: 40%;
+}
+
+/* #grid{
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    width: 100%;
+    z-index: -1;
+    border-bottom: 7px solid rgb(180, 179, 179);
+} */
+
+.btn{
+    margin: 5vh 5.5vw;
+}
+
+
+#bt{
+    background: rgba(225,225,255,0.3);
+    color: white;
+    padding: 1vh 7vh;
+    border: 5px solid #00DDFE;
+    font-size: 2vh;
+    border-radius: 1vh;
+}
+
+
+.home{
+    height: 125vh;
+    border-bottom: 1px solid rgb(230, 227, 227);
+}
+.about{
+    /* margin-top: 52vh; */
+    padding-top: 5vh;
+    height: 100vh;
+    overflow-x: hidden;
+    
+}
+.responsibilities{
+    /* background-image: url('../images/resp.png'); */
+    /* background-position: center; */
+    /* background-size:cover; */
+    /* background-repeat: no-repeat; */
+    height: 100vh;
+}
+
+.incentive{
+    /* background-color: black; */
+    background-image: url('../images/grid-2.png');
+    height: 200vh;
+    border-bottom: 2px solid rgb(43, 43, 43);
+}
+
+h1{
+    padding-top: 10vh ;
+    color: white;
+    text-align: center;
+    font-family: Highman Trial;
+    font-size: 10vh;
+    text-transform: uppercase;
+}
+
+.col{
+     background: #D9D9D9;
+     height: 30vh;
+     padding: 5vh;
+     margin: 3vh;
+}
+
+.random{
+    display: inline-block;
+    width: 45vh;
+    height: 40vh;
+    /* border: 1px solid white; */
+}
+
+.one{
+    
+    float: right;
+    margin-right: 20vh;
+}
+
+.two{
+    width: 40vh;
+    height: 40vh;
+    float: right;
+    z-index: -1;
+}
+
+.head{
+    margin-left: 11vh;
+    color: white;
+    font-size: 10vh;
+    font-family: Highman Trial;
+    /* text-transform: uppercase; */
+}
+.headc{
+    --bs-gutter-x: 0; 
+    padding-top: 13vh ;
+    color: white;
+    font-size: 10vh;
+    font-family: Highman Trial;
+}
+.hetco{
+    --bs-gutter-x: 0; 
+        padding-top: 5vh ;
+        color: white;
+        font-size: 10vh;
+        font-family: Highman Trial;
+
+}
+.kaam{
+    margin-left: 11vh;
+    color: white;
+    font-size: 3vh;
+    width: 48%;
+}
+
+.tum{
+    margin-top: 2vh;
+    text-align: center;
+    color: white;
+    font-family: Highman Trial;
+    font-size: 10vh;
+}
+
+.kya{
+    background: rgba( 255, 255, 255, 0.5 );
+/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
+backdrop-filter: blur( 1.5px );
+-webkit-backdrop-filter: blur( 1.5px );
+/* border-radius: 10px; */
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+display: flex;
+flex-direction: column;
+align-items: center;
+/* justify-content: center; */
+}
+
+.upar{
+    font-size: 2.8vh;
+    color: white;
+    font-weight: bold;
+}
+
+.niche{
+    display: flex;
+    margin-top: 2vh;
+    font-size: 2vh;
+    color: white;
+}
+
+.respo{
+    margin-left: 11vh;
+    margin-top: 5vh;
+}
+
+.dekh{
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 3.5vh;
+    font-weight: bold;
+}
+.padh{
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-size: 2vh;
+   
+}
+
+#sam1{
+    color: white;
+    font-size: 3.5vh;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 1px 1px #00DDFE;
+    padding-left: 11vh;
+    
+}
+#sam2{
+    color: white;
+    font-size: 3.5vh;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 1px 1px #7968FF;
+    padding-left: 11vh; 
+}
+
+
+
+.ab{
+    padding-left: 12.5vh;
+color: white;
+font-size: 2.5vh
+}
+
+
+.structure{
+    background-image: url('../images/side.png');
+    background-repeat: no-repeat;
+}
+
+.htbit{
+    height: auto;
+    z-index: 5;
+}
+
+.team-head{
+    color: white;
+    font-family: 'Lato', sans-serif;
+    font-size: 2vh;
+    /* width: 30%; */
+    width: 50%;
+}
+
+.le{
+    padding-top: 1.5vh;
+    padding-left: 11vh;
+    padding-bottom: 3vh;
+}
+
+.pointer{
+    color: #00DDFE;
+    font-size: 2vh;
+    margin-right: 1vh;
+    font-weight: bold;
+}
+
+.point{
+    margin-left: 11vh;
+    margin-bottom: 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.purple{
+    color: #7968FF;
+}
+
+.question{
+    margin-top: 0.7vh;
+    color: #7968FF;
+    border: 2px solid #F5C417;
+    border-radius: 50%;
+    padding: 0 1vh;
+    width: auto;
+    height: auto;
+}
+
+.prashna{
+    color: white;
+    padding-left: 1vh;
+    font-size: 2.8vh;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.uttar{
+    background: rgba(235, 232, 255, 0.5);
+    border-radius: 1vh;
+    color: white;
+    margin-top: 0.5vh;
+    margin-left: 1vh;
+    margin-right: 12vh;
+    padding: 0.2vh 1vh;
+    font-size: 2.5vh;
+    font-family: 'Lato', sans-serif;
+    width:fit-content;
+}
+
+.testi{
+    height: 35vh;
+    margin: 0 10vh;
+    background-color: rgb(136, 133, 133);
+    align-self: center;
+}
+.bahar{
+    margin: 0 50vh;
+    margin-bottom: 10vh;
+}
+
+.contact{
+    background-color: #7968FF;
+    height: auto;
+}
+
+.sampark{
+    color: white;
+    font-size: 2.8vh;
+    font-family: 'Lato', sans-serif;
+
+}
+
+.manager{
+    color: white;
+    font-size: 5vh;
+    font-family: Highman Trial;
+    line-height: 3vh;
+}
+
+.post{
+    color: white;
+    font-size: 2.8vh;
+    font-family: Highman Trial;
+}
+
+.sadh{
+    color: white;
+    font-size: 2vh;
+    font-family: 'Lato', sans-serif;
+    padding-top: 8vh;
+
+}
+
+.location{
+    display: flex;
+    justify-content: center;
+    padding: 1vh;
+}
+
+.icon{
+    margin-right: 1vh;
+}
+
+#mobg{
+    position: absolute;
+     bottom: -28vh;left: 0vh;
+      width: 100%;
+      z-index: -1;
+      border-bottom: 1px solid rgb(206, 205, 205);
+}    
+#mobh{
+    position: absolute; 
+    left:-20vh; 
+    bottom:-20vh;
+    /* width: 100vw; */
+}  
+.mobr{
+    --bs-gutter-x: 0; 
+    padding: 0 15vh;
+}
+#moba{
+    position: absolute; 
+    top:110vh; 
+    left:-48vh ;
+    z-index:-1; 
+    transform: rotate(40deg); 
+    /* width: 100%; */
+    height: 170vh;
+}
+
+#mcord{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+}
+#mlead{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: flex-end;
+}
+#incen{
+    position: absolute; 
+    top:261vh ;left:-20vh; 
+    transform: rotateZ(30deg);
+}
+#mht{
+    position:absolute;
+    z-index:-1;
+    right:0; 
+    top:505vh"
+}
+#msq{
+    position:relative;
+    left: -17vh;
+}
+#mpy{
+    position:absolute ; 
+    left:-10vh; 
+    top:810vh;
+}
+#mfq{
+    position: absolute; 
+    z-index: -1; 
+    width: 200vh; 
+    height: 200vh;
+    right:0;
+    top:650vh"
+}
+#mbo{
+    padding-left: 8vh;
+    padding-top:3vh;
+    padding-right: 8vh;
+}
+#mno{
+    padding-left: 11vh;
+}
+/* .cont{
+    padding-top: 5vh;
+} */
+/* responsivness */
+
+/* small size */
+@media screen and (max-width:375px){
+    .logo
+    #resl{
+        width:20vh;
+    }
+    #incen{
+        top: 287vh;
+        width: 100vw;
+    }
+    .uphead{
+        font-size: 7vh;
+        line-height: 5.5vh;
+    }
+    .contain{
+        margin-top:10vh;
+    }
+    .sub-head{
+        width: 94%;
+        font-size: 1.5vh;
+        line-height: 2vh;
+    }
+    .one{
+        margin-right: -14vh;
+    }
+    .one{
+        height: 10vh;
+    }
+    .btn{
+        padding: 0;
+    }
+    #bt{
+        padding: 0.5vh 4.5vh;
+    }
+    #mobg{
+        bottom: 21vh;
+    }
+    #mobh{
+        width: 60vw;
+        left: -23vw;
+        bottom: 18vh;
+    }
+    .home{
+        height: 76vh;
+    }
+    .head{
+        margin-left: 3vh;
+        font-size: 6vh;
+    }
+    .kaam{
+        margin-left: 3vh;
+    font-size: 1.8vh;
+    width: 88%;
+    }
+    .tum{
+        font-size: 3.5vh;
+    }
+    .mobr{
+        padding: 0;
+    }
+    .about{
+        height: auto;
+    }
+    .upar{
+        font-size: 2vh;
+    }
+    .niche{
+        font-size: 1.8vh;
+    }
+    .col{
+        padding: 3vh;
+    }
+    #moba{
+        left: -36vh;
+        transform: rotate(0);
+        height: 72vh;
+    }
+    .respo{
+        margin-left: 4vh;
+    }
+    .col-3{
+        width:80%;
+    }
+    .dekh{
+        font-size: 3vh;
+    }
+    .padh{
+        font-size: 1.8vh;
+    }
+    #mcord{
+        justify-content: flex-start;
+    }
+    #mlead{
+        justify-content: flex-start;
+    }
+
+    h1{
+        padding-top: 7vh;
+        font-size: 7vh;
+    }
+    .two{
+        width: 19vh;
+        height: 22vh;
+    }
+    .headc{
+        padding-top: 11vh;
+        padding-left: 7vh;
+        font-size: 6vh;
+        text-align: center;
+    }
+    #sam1,#sam2{
+        padding: 0;
+        text-align: center;
+    }
+    .ab{
+        font-size: 2vh;
+        padding: 0 2vh;
+        text-align: center;
+    }
+    .incentive{
+        height: auto;
+    }
+    .structure{
+        background-image: none;
+    }
+    #mht{
+        left: -14vh;
+        top: 577vh;
+        width: 100vw;
+    }
+    .etc{
+        padding: 0;
+        font-size: 5vh;
+    }
+    .team-head{
+        text-align: center;
+        padding: 0 1vh;
+        width: 100%;
+    }
+    .le{
+        padding-left: 2vh;
+    }
+    .point{
+        margin-left: 2vh;
+    }
+    #msq{
+        width: 57vw;
+        left: -9vh;
+    }
+    #mpy{
+        width: 100vw;
+    }
+    #mfq{
+        display: none;
+    }
+    #mno{
+        padding: 0 4vh;
+    }
+    .prashna{
+        font-size: 2vh;
+    }
+    .question{
+        margin-top: 0;
+    }
+    .uttar{
+        margin-right: 6vh;
+        font-size: 1.8vh;
+    }
+    .extt{
+        padding-left: 0;
+    }
+    .bahar{
+        margin: 0;
+        margin-bottom: 10vh;
+    }
+    .hetco{
+        padding-top: 5vh;
+        font-size: 7vh;
+    }
+    .sampark{
+        font-size: 2vh;
+        margin-bottom: 4vh;
+    }
+    .manager{
+        line-height: 4vh;
+    }
+    .post{
+        padding-bottom: 3vh;
+    }
+    .sadh{
+        padding: 0;
+    }
+    .mloc{
+        width: 93%;
+    }
+}
+

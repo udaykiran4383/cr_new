@@ -1,0 +1,28 @@
+
+{% extends "user/base_dash.html" %}
+{% block content %}
+{% load static %}
+
+<!-- <h1>Dashboard</h1> -->
+
+<div class="fuild-container">
+    <h2>Task 1 </h2>
+    <h4>Steps:</h4>
+    <ol>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
+        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
+    </ol>
+    <h4>Proof Submission:</h4>
+    <form action="" method="post">
+        {% csrf_token %}
+        <textarea name="proof" id="" cols="30" rows="10" placeholder="Enter your google drive link here"></textarea>
+        <button type="submit" class="btn btn-primary" style="display:block">Submit</button>
+    </form>
+    <h1>Proof Status : {{task1}}</h1>
+</div>
+
+
+
+{% endblock content %}

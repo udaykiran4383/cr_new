@@ -1,0 +1,63 @@
+{% extends "user/base_dash.html" %}
+{% block content %}
+{% load static %}
+
+{% if team_status == True %}
+<h3>Your Team status</h3>
+<p>Team Name : {{teamname}}</p>
+<p>Team Leader : {{leader}} </p>
+{% for teamreg in teamreg  %}
+<p>Member {{forloop.counter}}:  {{teamreg.receiver}} | Status : {{teamreg.status}}</p>
+
+{% endfor %}
+<p>Status: {{team_status}} </p>
+{% else %}
+<form action="team" method="post">
+    {% csrf_token %}
+    <div>
+        <label for="">Team Name</label>
+        <input type="text" name="teamname">
+    </div>
+    <div>
+        <label for="">Team Leader</label>
+        <input type="text" name="teamleader">
+        <label for="">CR ID</label>
+        <input type="text" name="crid1">
+    </div>
+    <div>
+        <label for="">Team Member</label>
+        <input type="text" name="member2">
+        <label for="">CR ID</label>
+        <input type="text" name="crid2">
+    </div>
+    <div>
+        <label for="">Team Member</label>
+        <input type="text" name="member3">
+        <label for="">CR ID</label>
+        <input type="text" name="crid3">
+    </div>
+    <div>
+        <label for="">Team Member</label>
+        <input type="text" name="member4">
+        <label for="">CR ID</label>
+        <input type="text" name="crid4">
+    </div>
+    <button type="submit" class="btn btn-outline-success">Submit</button>
+</form>
+
+
+<h3>Team Formation status</h3>
+<p>Team Name : {{teamname}}</p>
+<p>Team Leader : {{leader}} {{cr_id}}</p>
+{% for teamreg in teamreg  %}
+<p>Member {{forloop.counter}}:  {{teamreg.receiver}} | Status : {{teamreg.status}}</p>
+
+
+{% endfor %}
+<p>Status: {{team_status}} </p>
+
+{% endif %}
+
+
+
+{% endblock content %}
