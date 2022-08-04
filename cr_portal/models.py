@@ -17,6 +17,8 @@ class UserProfile(models.Model):
     sop = models.CharField(max_length=2000,default="")
     points = models.IntegerField(default="0")
     in_team = models.BooleanField(default='False')
+    ref = models.CharField(max_length=200, default="")
+    bonus_ref = models.CharField(max_length=200, default="")   #for form
     def __str__(self):
         return self.name
 
@@ -56,3 +58,8 @@ class Team(models.Model):
 
     def __str__(self):
         return self.teamname 
+
+class Blog(models.Model):
+    name = models.CharField(max_length=200)
+    crid = models.CharField(max_length=200)
+    msg = models.CharField(max_length=5000)

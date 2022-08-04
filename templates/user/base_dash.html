@@ -14,23 +14,30 @@
   <body>
 
   {% comment %} Alert Messages {% endcomment %}
-  {% for message in messages%}
+  {% comment %} {% for message in messages%}
     <div  class="alert alert-warning alert-dismissible fade show"  role="alert"  style="margin: 0">
       <strong>{{message}}</strong> 
       <button    type="button"    class="btn-close"    data-bs-dismiss="alert"    aria-label="Close"  ></button>
     </div>
-  {% endfor %}
+  {% endfor %} {% endcomment %}
 
   <div class="cust-container">
     <div class="sidenav">
-      <div class="row">
-        <img src="{% static 'images/sun.png' %}" alt="">
+      <div class="row" id="majbori">
+        <img src="{% static 'images/sun.png' %}" id="sun" alt="">
       </div>
-      <!-- <a class="nav-link active" aria-current="page" href="dashboard">Home</a>
-      <a class="nav-link active" href="leaderboard">Leaderboard</a>
+      <div class="row" id="items">
+        <a href="dashboard" class="chalu"><img src="{% static 'images/dash_home.png' %}" id="home" alt=""></a>
+        <a href="profile"><img src="{% static 'images/profile.png' %}" alt="" id="home"></a>
+        <a href="leaderboard"><img src="{% static 'images/lead.png' %}" alt="" id="home"></a>
+        <a href="#task"><img src="{% static 'images/task.png' %}" alt="" id="home"></a>
+        <a href="invite/{{id}}"><img src="{% static 'images/invite.png' %}" alt="" id="home"></a> 
+        <a href="team"><img src="{% static 'images/team.png' %}" alt=""  id="home"></a>
+        <a href="blog"><img src="{% static 'images/blognav.png' %}" alt="" id="home"></a>
+      </div>
+      <!-- 
       <a class="nav-link active" href="teamLeaderboard">Team Leaderboard</a>
-      <a class="nav-link active" href="team">Team</a>
-      <a class="nav-link active" href="invite/{{id}}">Invites</a> -->
+    -->
     </div>
     <div class="main">
       {% block content %}
@@ -58,7 +65,6 @@
           </ul>
           <div class="d-flex" role="search">
             <div class="btn btn-success ">CR ID:{{cr_id}}</div>
-            <a href="profile" class="btn btn-outline-success mx-3">Profile</a>
             <a href="{% url 'account_logout' %}" class="btn btn-outline-success">Logout</a>
           </div>
           </div>

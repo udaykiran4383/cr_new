@@ -1,0 +1,77 @@
+
+
+.fluid-container{
+    background-color: black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+    background-image: url('../images/prowave.png');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+#prologo{
+    padding: 2vh 5vh;
+    position: absolute;
+    
+}
+
+#prow3{
+    position: absolute;
+    right: 0;
+    height: 100vh;
+}
+
+#prow4{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.inner-form{
+    background: rgba(252, 252, 252, 0.85);
+    opacity: 0.88;
+    backdrop-filter: blur(30px);
+    border-radius: 1vh;
+    margin: 0 15vw;
+    margin-top: 6vh;
+    padding-right: 5vh;
+}
+
+.fill{
+    color: #2D2C2C;
+    font-size: 5vh;
+    font-family: 'Lato', sans-serif;
+    padding-top: 2vh;
+    font-weight: bold;
+}
+
+input,select,textarea{
+    background: none;
+    border: none;
+    border: 1px solid rgb(197, 195, 195);
+    width: 100%;
+    padding: 0.5vh;
+}
+
+.s{
+    display: flex;
+    justify-content: center;
+}
+
+.l{
+    padding-left: 5vh;
+    padding-top: 1.5vh;
+    font-size: 2vh;
+    color: black;
+    font-weight: bold;
+}
+
+.i{
+    padding-top: 1.8vh;
+}
+
+.b{
+    margin: 2.5vh;
+    padding: 1vh 3vh;
+}

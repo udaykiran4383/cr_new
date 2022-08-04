@@ -6,12 +6,103 @@
 <!-- <h1>Dashboard</h1> -->
 
 <div class="fuild-container">
+    <img src="{% static 'images/globe.png' %}" id="globe" alt="">
+    <img src="{% static 'images/new.png' %}" id="new" alt="">
+    <div id="dots">
+        <img src="{% static 'images/w1.png' %}" id="w1" alt="">
+        <img src="{% static 'images/w1.png' %}" id="w1" alt="">
+    </div>
 
-    <h3>Task 0</h3>
+    <div class="row except" >
+        <div class="row" id="hello">
+            Hello CR,
+        </div>
+        <div class="row" id="crid">
+            CR ID-{{cr_id}}
+        </div>
+
+        <button class="row" id="team" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Team Details <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
+        </button>
+
+        <div class="row" id="ref">
+            Referral Code: {{ref}}
+        </div>
+
+        <div class="row" id="faydadekh">
+            Use this code to invite your friends to the CR program and form a team with them to win exciting prizes and gifts 
+        </div>
+        <div class="row" id="tac">
+            Terms and Conditions
+        </div>
+    </div>
+    <div class="tasks" id="task">
+        <img src="{% static 'images/taskgra.png' %}" alt="" id="taskgra">
+        <img src="{% static 'images/taskni.png' %}" alt="" id="taskni">
+        <div class="row m">
+            <div class="co">
+                Task 1
+            </div>
+        </div>
+    </div>
+
+    <!-- <h3>Task 0</h3>
     <a href="team" class="btn btn-outline-success">Form Team</a>
 
     <h3>Task 1</h3>
-    <a href="task1" class="btn btn-outline-success">Complete</a>
+    <a href="task1" class="btn btn-outline-success">Complete</a> -->
+    <!-- terms and conditions -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" id="diatc">
+            <div class="modal-content" style="background: black;">
+            <div class="modal-header" style="border:none">
+                <div class="col-12" id="sam1">Terms and Conditions</div>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                  <div class="tc">
+                      <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                      <div class="textc">The Certificate as College Representative will be given only if he/she/they fulfills the necessary conditions.</div>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="tc">
+                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                    <div class="textc">More than one CR team can be selected from a college 
+                        depending upon the 	strength of the college.
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="tc">
+                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                    <div class="textc">Abhyuday, IIT Bombay shall send all the publicity 
+                        materials to the respective colleges, but will not be 
+                        liable for extra cost incurred by the CR team.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="tc">
+                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                    <div class="textc">The Certificate shall be provided only on the successful 
+                        completion of the complete term.
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="tc">
+                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                    <div class="textc">Abhyuday, IIT Bombay can change the terms and 
+                        conditions if deemed necessary.
+                        </div>
+                </div>
+            </div>
+            </div>
+            
+          </div>
+        </div>
+    </div>
 </div>
 
 

@@ -3,58 +3,113 @@
 {% load static %}
 
 {% if team_status == True %}
-<h3>Your Team status</h3>
-<p>Team Name : {{teamname}}</p>
-<p>Team Leader : {{leader}} </p>
-{% for teamreg in teamreg  %}
-<p>Member {{forloop.counter}}:  {{teamreg.receiver}} | Status : {{teamreg.status}}</p>
+<div class="r">
+    Your Team 
+    <p style="float: right; padding-right:10vw;">Status: {{team_status}} </p> 
 
-{% endfor %}
-<p>Status: {{team_status}} </p>
+</div>
+<div class="a">
+    <div class="row">
+        <div class="col-3">Team Name :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{teamname}}</div>
+    </div>
+    <div class="row">
+        <div class="col-3">Team Leader :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{leader}} {{leader_id}}</div>
+    </div>
+    {% for teamreg in teamreg  %}
+    <div class="row">
+        <div class="col-3">Member {{forloop.counter}} :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{teamreg.receiver}} | Status : {{teamreg.status}}</div>
+    </div>
+      
+    
+    {% endfor %}
+</div>
+
+
 {% else %}
+<div class="r">
+    Team Formation status
+    <p style="float: right; padding-right:10vw;">Status: {{team_status}} </p> 
+</div>
+<div class="a">
+    <div class="row">
+        <div class="col-3">Team Name :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{teamname}}</div>
+    </div>
+    <div class="row">
+        <div class="col-3">Team Leader :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{leader}} {{leader_id}}</div>
+    </div>
+    {% for teamreg in teamreg  %}
+    <div class="row">
+        <div class="col-3">Member {{forloop.counter}} :</div>
+        <div class="col-9" id="ref" style="width: 50%;">{{teamreg.receiver}} | Status : {{teamreg.status}}</div>
+    </div>
+      
+    
+    {% endfor %}
+</div>
+
+<div class="r">Form Your Team</div>
 <form action="team" method="post">
     {% csrf_token %}
-    <div>
-        <label for="">Team Name</label>
-        <input type="text" name="teamname">
+    <div class="a">
+        <div class="row">
+            <div class="col-3">
+                <label for="">Team Name</label>
+            </div>
+            <div class="col-9">
+                <input type="text" name="teamname" id="tac">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Team Leader</label>
+            </div>
+            <div class="col-9">
+                <input type="text" name="teamleader" value="{{name}}" id="tac">
+                <label for="">CR ID</label>
+                <input type="text" name="crid1" value="{{cr_id}}" id="tac">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Team Member</label>
+            </div>
+            <div class="col-9">
+                <input type="text" name="member2" id="tac">
+                <label for="">CR ID</label>
+                <input type="text" name="crid2" id="tac">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Team Member</label>
+            </div>
+            <div class="col-9">
+                <input type="text" name="member3" id="tac">
+                <label for="">CR ID</label>
+                <input type="text" name="crid3" id="tac">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <label for="">Team Member</label>
+            </div>
+            <div class="col-9">
+                <input type="text" name="member4" id="tac">
+                <label for="">CR ID</label>
+                <input type="text" name="crid4" id="tac">
+            </div>
+        </div>
+        <button type="submit" id="blog-bt">Submit</button>
     </div>
-    <div>
-        <label for="">Team Leader</label>
-        <input type="text" name="teamleader">
-        <label for="">CR ID</label>
-        <input type="text" name="crid1">
-    </div>
-    <div>
-        <label for="">Team Member</label>
-        <input type="text" name="member2">
-        <label for="">CR ID</label>
-        <input type="text" name="crid2">
-    </div>
-    <div>
-        <label for="">Team Member</label>
-        <input type="text" name="member3">
-        <label for="">CR ID</label>
-        <input type="text" name="crid3">
-    </div>
-    <div>
-        <label for="">Team Member</label>
-        <input type="text" name="member4">
-        <label for="">CR ID</label>
-        <input type="text" name="crid4">
-    </div>
-    <button type="submit" class="btn btn-outline-success">Submit</button>
 </form>
 
 
-<h3>Team Formation status</h3>
-<p>Team Name : {{teamname}}</p>
-<p>Team Leader : {{leader}} {{cr_id}}</p>
-{% for teamreg in teamreg  %}
-<p>Member {{forloop.counter}}:  {{teamreg.receiver}} | Status : {{teamreg.status}}</p>
-
-
-{% endfor %}
-<p>Status: {{team_status}} </p>
 
 {% endif %}
 

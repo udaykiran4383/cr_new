@@ -1,10 +1,16 @@
-*{
+.cust-container{
     background-color: black;
+    height: auto;
+    /* overflow-x: hidden; */
+}
+.moreimp{
+  background-color: black;
+  min-height: 100vh;
 }
 
 .sidenav {
     height: 100%;
-    width: 160px;
+    width: 120px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -15,11 +21,12 @@
   }
   
   .sidenav a {
-    padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
-    display: block;
+    display: flex;
+    justify-content: center;
+    margin: 3vh 0;
   }
   
   .sidenav a:hover {
@@ -27,13 +34,400 @@
   }
   
   .main {
-    margin-left: 160px; /* Same as the width of the sidenav */
+    margin-left: 120px; /* Same as the width of the sidenav */
     font-size: 28px; /* Increased text to enable scrolling */
     padding: 0px 10px;
   }
   
-  @media screen and (max-height: 450px) {
+  #sun{
+    padding: 1vh 3vh;
+
+  }
+
+  
+
+  #majbori{
+    border-bottom: 5px solid #7968FF;
+    padding-bottom: 3vh;
+  }
+
+  #items{
+      position: absolute;
+      bottom: 0;
+  }
+
+  #globe{
+      position: absolute;
+      right: 0;
+  }
+  
+  #new{
+      position:absolute;
+      right: 0;
+      bottom: 0;
+  }
+
+  #dots{
+      position: absolute;
+      bottom: 0;
+  }
+
+  .except{
+    --bs-gutter-x: 0;
+    padding-left: 5vw;
+    display: block;
+  }
+
+  #hello{
+    color: white;
+    font-size: 5vh;
+    font-weight: bold;
+    padding-top: 7vh;
+  }
+
+  #crid,#team{
+    color: white;
+    font-size: 3vh;
+    margin-top: 3vh;
+    font-weight: bold;
+    border: 4px solid #F5C417;
+    width: fit-content;
+    margin-left: 0vh;
+    margin-bottom: 6vh;
+    border-radius: 1vh;
+    background-color: black;
+  }
+
+  #ref{
+    color: white;
+    font-size: 3vh;
+    margin-top: 3vh;
+    font-weight: bold;
+    border: 4px solid #7968FF;
+    width: fit-content;
+    margin-left: 0vh;
+    border-radius: 1vh;
+  }
+
+  #tac{
+    color: white;
+    font-size: 3vh;
+    margin-top: 3vh;
+    font-weight: bold;
+    border: 4px solid #00DDFE;
+    width: fit-content;
+    margin-left: 0vh;
+    border-radius: 1vh;
+  }
+
+  #faydadekh{
+    color: white;
+    font-size: 2.7vh;
+    margin-top: 3vh;
+    margin-bottom: 15vh;
+    width: 45vw;
+  }
+
+  #sam1{
+    color: white;
+    font-size: 3.5vh;
+    font-family: 'Lato', sans-serif;
+    text-shadow: 1px 1px #00DDFE;
+    text-align: center;    
+    font-weight: bold;
+  }
+
+
+  .tc{
+    padding: 2vh 0;
+    display: flex;
+  }
+
+  .textc{
+    color: white;
+    font-size: 1.8vh;
+    margin-left: 2vh;
+  }
+
+  #diatc{
+    border: 1px solid white;
+    padding: 1vh 3vh;
+    height: 80vh;
+    background-color: black;
+    /* background-image: url('../images/tcw.png'); */
+  }
+
+  #tcw{
+    position: absolute;
+    bottom: 0;
+  }
+
+  h1{
+    font-family: 'Lato', sans-serif;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .lead{
+    padding:  5vh 8vh;
+  }
+
+  #home-tab,#profile-tab{
+    font-family: 'Lato', sans-serif;
+  }
+
+  #crid1{
+    color: white;
+    font-size: 3vh;
+    margin-top: 3vh;
+    font-weight: bold;
+    border: 4px solid #00DDFE;
+    /* width: fit-content; */
+    margin-left: 0vh;
+    /* margin-bottom: 6vh; */
+    border-radius: 1vh;
+  }
+  
+  .tasks{
+    height: 100vh;
+    margin-top: 25vh;
+    overflow-x: hidden;
+  }
+
+  #taskgra{
+    position: absolute;
+    right: 0;
+  }
+
+  #taskni{
+    position: absolute;
+    right: 0;
+    bottom: -102vh;
+  }
+
+  .co{
+    
+    color: white;
+    background: linear-gradient(111.61deg, rgba(217, 217, 217, 0.7) -8.77%, rgba(217, 217, 217, 0) 100%);
+    backdrop-filter: blur(5px);
+    height: 50vh;
+    width: 50vw;
+  }
+
+  .m{
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .r{
+    padding-top: 5vh;
+    padding-left: 5vw;
+    color: white;
+  }
+
+  textarea{
+    background: transparent;
+    margin-top: 5vh;
+    align-self: center;
+    width: 80%;
+  }
+
+  .inner-blog{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+  }
+  #blog-bt{
+    /* width: 50%; */
+    color: white;
+    border: 1px solid white;
+    border-radius: 1vh;
+    padding:  0.5vh 2vh;
+    margin: 5vh;
+    background: transparent;
+  }
+
+  input{
+    background: transparent;
+    color: white;
+    margin-right: 1vw;
+  }
+  
+  label{
+    background-color: transparent;
+    color: white;
+    
+  }
+
+  .a{
+    padding-top: 3vh;
+    padding-left: 5vw;
+  }
+
+  .col-3{
+    display: flex;
+    align-items: center;
+    color: white;
+  }
+  
+  .row{
+    --bs-gutter-x: 0;
+  }
+
+  th,td{
+    color: white;
+  }
+
+  #dropdown{
+    height: auto;
+    width: 6vh;
+    margin-top: 1.2vh;
+  }
+
+  #yrank{
+    position: absolute;
+      right: 13vh;
+      color: white;
+  }
+  span{
+    display: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* responsiveness */
+  @media screen and (max-height: 1024px) {
+    #globe{
+      height: 61vh;
+    }
+    #new{
+      height: 46vh;
+    }
+    #taskni{
+      height: 50vh;
+      /* bottom: -107vh; */
+    }
+    #dropdown{
+      width: 3vh;
+      margin-top: 1.4vh;
+    }
+  }
+
+
+  @media screen and (max-width:768px) {
+    .sidenav{
+      width: 106px;
+    }
+    #hello{
+      font-size: 4vh;
+    }
+    #new{
+      height: 35vh;
+    }
+    #faydadekh{
+      font-size: 2.2vh;
+      margin-bottom: 11vh;
+    }
+    #crid,#team,#ref,#tac{
+      font-size: 2.5vh;
+    }
+    #taskni{
+      bottom: -95vh;
+    }
+    #taskgra{
+      margin-top: 5vh;
+    }
+    .r,#blog-bt{
+      font-size: 3vh;
+    }
+  }
+
+
+  @media screen and (max-width:425px) {
+    .sidenav{
+      width: 76px;
+    }
+    .main{
+      margin-left: 79px;
+    }
+    #home{
+      height: 3.5vh;
+    }
+    #sun{
+      padding: 1vh;
+    }
+    #globe{
+      height: 31vh;
+    }
+    #new{
+      height: 29vh;
+    }
+    .except{
+      padding: 0;
+    }
+    #faydadekh{
+      width: 70vw;
+    }
+    #w1{
+      display: none;
+    }
+    #taskgra{
+      height: 34vh;
+    }
+    #taskni{
+      height: 33vh;
+    }
+    .lead{
+      padding: 5vh 0;
+    }
+    #yrank{
+      position: relative;
+      right:0;
+      padding-right: 1vh;
+      padding-top: 1vh;
+    }
+    span{
+      display: inline;
+    }
+    #crid1{
+      border: 2px solid #00DDFE;
+      font-size: 2vh;
+      padding: 0 1vh ;
+    }
+    table{
+      font-size: 2vh;
+    }
+    .r,#blog-bt{
+      font-size: 2vh;
+    }
+  }
+  @media screen and (max-width:320px) {
+    #hello{
+      font-size: 2.5vh;
+    }
+    #crid,#team,#ref,#tac,#faydadekh{
+      font-size: 2vh;
+    }
+    
+  }
+  /* @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-  }
+  } */
 

@@ -1,27 +1,54 @@
 {% extends "user/base_dash.html" %}
 {% block content %}
 {% load static %}
-
-<h1>Leaderboard</h1>
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Rank</th>
-        <th scope="col">Name</th>
-        <th scope="col">Points</th>
-      </tr>
-    </thead>
-    <tbody>
+<div class="moreimp">
+  <div class="lead">
+    <h1>Leaderboard</h1>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Individual</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Team </button>
+      </li>
+      <li id="yrank">Your Rank: {{rank}}</li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         {% for user in user %}
-                
-        <tr>
-          <th>{{ forloop.counter }}</th>
-          <td>{{ user.name}}</td>
-          <td>{{ user.points}}</td>
-        </tr>
-        
+        <div class="row" id="crid1">
+          <!-- <div class="innerrow"> -->
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <span>Rank:</span>  {{ forloop.counter }}
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4">
+              <span>Name: </span>{{ user.name}}
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4" >
+              <span>Points: </span>{{ user.points}}
+            </div>
+          <!-- </div> -->
+        </div>
         {% endfor %}
-    </tbody>
-  </table>
+      </div>
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        {% for team in teams %}
+        <div class="row" id="crid1">
+          <div class="col-lg-4 ">
+            <span>Rank:</span> {{ forloop.counter }}
+          </div>
+          <div class="col-lg-4 ">
+            <span>Name: </span>{{ team.teamname}}
+          </div>
+          <div class="col-lg-4 ">
+            <span>Points: </span>{{ team.teampoint}}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+</div>
 
 {% endblock content %}

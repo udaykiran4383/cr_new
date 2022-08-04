@@ -1,0 +1,28 @@
+
+{% extends "user/base_dash.html" %}
+{% block content %}
+{% load static %}
+
+<!-- <h1>Dashboard</h1> -->
+<div class="moreimp">
+    <div class="fuild-container">
+        <div class="r">Share your monthly experience of being a CR of Abhyuday, 
+            IIT Bombay here and earn 10 points ( 100 words minimum) 
+            </div>
+        
+            <form action="blog" method="post">
+                {% csrf_token %}
+                <div class="inner-blog">
+                    <input type="hidden" name="name" value="{{name}}">
+                    <input type="hidden" name="crid" value="{{crid}}">
+                    <textarea name="message" id="" cols="30" rows="10"></textarea>
+                    <button id="blog-bt" type="submit">Send</button>
+                </div>
+            </form>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
