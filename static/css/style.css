@@ -3,6 +3,20 @@
     src: url(../fonts/Highman.ttf);
 }
 
+/* img > .part{
+    width: 30vw;
+} */
+
+.parten{
+    margin-bottom: 5vh;
+}
+
+#p1,#p2,#p3{
+    background-color: white;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
 #c {
     position: fixed;
     left: 0;
@@ -455,10 +469,26 @@ font-size: 2.5vh
 #mno{
     padding-left: 11vh;
 }
+
+#carouselExampleControls6{
+    display: none;
+}
 /* .cont{
     padding-top: 5vh;
 } */
 /* responsivness */
+
+@media screen and (max-width:768px) {
+    #carouselExampleControls5{
+        display: none;
+    }
+    #carouselExampleControls6{
+        display: block;
+    }
+    .headc{
+        padding-left: 0;
+    }
+}
 
 /* small size */
 @media screen and (max-width:375px){
@@ -566,7 +596,7 @@ font-size: 2.5vh
     }
     .headc{
         padding-top: 11vh;
-        padding-left: 7vh;
+        /* padding-left: 7vh; */
         font-size: 6vh;
         text-align: center;
     }

@@ -1,3 +1,4 @@
+import email
 from pickle import TRUE
 # from tkinter.font import BOLD
 from django.dispatch import receiver
@@ -7,6 +8,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.contrib import messages
+from numpy import single
 from yaml import serialize
 from . models import UserProfile , Invite , Team, Blog
 from django.core.mail import send_mail
@@ -81,7 +83,13 @@ def confirm(request):
             print(cr)
             print(ref)
             sub = "Congratulations for enrolling in CR Program of Abhyuday IIT Bombay"
-            msg = "Congratulations " + name + " your cr id is CR" + str(cr) + " Your referral code is REF" + str(ref)
+            msg = """Congratulations """ + name+"""!! \n
+You have successfully registered in the College Representative Internship Program 2022-23 of Abhyuday, IIT Bombay! We welcome you to the Abhyuday family! \n
+Your College Representative ID for your tenure as a CR will be CR""" +str(cr)+""". \n
+You can share the following referral code with your friends from your college to form a team and with other friends to earn more points for your team. \nReferral Code - REF""" +str(ref)+ """\n
+Lots of good wishes for your new endeavours with Abhyuday, IIT Bombay. \n"Do what you can, with what you have, where you are." -Theodore Roosevelt \n
+Regards, \nAbhyuday"""
+            # "Congratulations " + name + " your cr id is CR" + str(cr) + " Your referral code is REF" + str(ref)
             request.session['cr_id']="CR"+ str(cr)
             request.session['ref']="REF"+ str(ref)
 
@@ -140,22 +148,33 @@ def leaderboard(request):
     team = Team.objects.filter(team_status = True).order_by('-teampoint')
     id = obj.id
     cr_id = obj.cr_id
-    
-    #     team.team_status = True
-    #     team.save()
-    # else:
-    #     team.team_status = False
-    #     team.save() 
+    mypoint = obj.points
+    inteam = obj.in_team
 
-    data1 = UserProfile.objects.all().order_by('-points')
+    data1 = UserProfile.objects.filter( in_team = False ).order_by('-points')
+
+    myrank =0
     for idx, obj in enumerate(data1):
         if obj.cr_id == cr_id:
             myrank = idx + 1
+
+    team_rank =0
+    for idy, obj in enumerate(team):
+        if (obj.crid1 == cr_id) or (obj.crid2 == cr_id) or (obj.crid3 == cr_id) or (obj.crid4 == cr_id):
+            team_rank = idy + 1
+            
     # print(data1)
+    
+    team_point =0
+    objs = Team.objects.all()
+    for obj in objs:
+        if obj.crid1 == cr_id or obj.crid2 == cr_id or obj.crid3 == cr_id or obj.crid4 == cr_id:
+            team_point = obj.teampoint
 
     user = {
-        "user": data1,'id':id,'cr_id':cr_id,'teams':team,'rank':myrank
+        "user": data1,'id':id,'cr_id':cr_id,'teams':team,'rank':myrank , 'teamrank':team_rank, 'teampoint':team_point , 'mypoint':mypoint , 'inteam':inteam
     }
+
     
     return render(request, 'user/leaderboard.html' , user)
 
@@ -177,6 +196,7 @@ def team(request):
     name = obj.name
     cr_id = obj.cr_id
     id = obj.id
+    inteam = obj.in_team
     if request.method == "POST":
         teamname = request.POST['teamname']
         leader = request.POST['teamleader']
@@ -189,8 +209,9 @@ def team(request):
         cr_id4 = request.POST['crid4']
         team = Team(teamname = teamname, leader=leader,crid1 = cr_id1,member2 = member2,crid2=cr_id2,member3=member3, crid3 = cr_id3,member4=member4,crid4=cr_id4)
         objes = UserProfile.objects.all()
-        
-        
+        member = UserProfile.objects.get(id =id)
+        member.in_team = True
+        member.save()
         invite2 = Invite(sender_name = leader, sender= id, sender_cr_id = cr_id , receiver = cr_id2)
         invite2.save()
         invite3 = Invite(sender_name = leader, sender= id, sender_cr_id = cr_id ,receiver = cr_id3)
@@ -206,7 +227,19 @@ def team(request):
         if obj.crid1 == cr_id or obj.crid2 == cr_id or obj.crid3 == cr_id or obj.crid4 == cr_id:
             team = obj
 
-    print(team)
+    objes = Invite.objects.all()
+    temp =0
+    for obj in objes:
+        if obj.receiver == cr_id:
+            temp =1
+
+    print(temp)
+    cr= ""
+    for m in cr_id:
+        if m.isdigit():
+            cr = cr + m
+    
+    numcr = int(cr)
     # counter =0
     # objes = Invite.objects.all()
     # for obj in objes:
@@ -219,6 +252,7 @@ def team(request):
     #     return render(request , 'user/team.html',data )
     
     # else:
+
     if team !=0:
         teamreg = Invite.objects.filter(sender_cr_id = team.crid1)
         count = 0
@@ -236,13 +270,13 @@ def team(request):
         data ={
             'teamreg':teamreg,
             'name':name,'cr_id':cr_id,'id':id,
-            'teamname':team.teamname,'leader':team.leader,'team_status':team.team_status,'leader_id':team.crid1
+            'teamname':team.teamname,'leader':team.leader,'team_status':team.team_status,'leader_id':team.crid1,'cr':numcr , 'temp':temp ,'inteam':inteam
         }
         return render(request , 'user/team.html',data )
     else:
         data ={
             # 'teamreg':teamreg,
-            'name':name,'cr_id':cr_id,'id':id
+            'name':name,'cr_id':cr_id,'id':id,'temp':temp ,'inteam':inteam
             # 'teamname':team.teamname,'leader':team.leader,'team_status':team.team_status,'leader_id':team.crid1
         }
         return render(request , 'user/team.html',data )
@@ -288,7 +322,60 @@ def accept(request ,id ,cr, sender_id):
     user = UserProfile.objects.get(id = id)
     user.in_team = True
     user.save()
-    return HttpResponse("it worked")
+    return redirect('team')
+
+def reject(request ,id ,cr, sender_id):
+    fullcr= "CR"+str(cr)
+    
+    invite = Invite.objects.get(receiver = fullcr,sender = sender_id)
+    invite.decline = True
+    invite.save()
+    # user = UserProfile.objects.get(id = id)
+    # user.in_team = True
+    # user.save()
+    return redirect('team')
+
+def sendagain(request, id , cr, sender_id):
+    # fullcr= "CR"+str(cr)
+    invite = Invite.objects.get(receiver = cr,sender = sender_id)
+    invite.decline = False
+    invite.save()
+    return redirect('team')
+
+def newinvite(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        crid = request.POST['crid']
+        current_id = request.POST['current_id']
+        sender_id = request.POST['sender_id']
+        print(name)
+        print(crid)
+        print(current_id)
+        print(sender_id)
+        team ={}
+        objs = Team.objects.all()
+        for obj in objs:
+            if obj.crid2 == current_id:
+                obj.member2 = name
+                obj.crid2 = crid
+                obj.save()
+
+            elif obj.crid3 == current_id:
+                obj.member3 = name
+                obj.crid3 = crid
+                obj.save()
+
+            elif obj.crid4 == current_id:
+                obj.member4 = name
+                obj.crid4 = crid
+                obj.save()
+
+        invite = Invite.objects.get(receiver = current_id,sender = sender_id)
+        invite.receiver = crid
+        invite.decline = False
+        invite.save()
+    return redirect('team')
+
     # else:
     # return HttpResponse("Failed")
 
@@ -302,6 +389,15 @@ def accept(request ,id ,cr, sender_id):
     # team.status = True
     # team.save()
     # user.save()
+def task(request):
+    id =0
+    cr_id=0
+    obj = UserProfile.objects.get(email= gmail)
+    id = obj.id
+    cr_id = obj.cr_id
+    name = obj.name
+    data = { 'name': name , 'crid':cr_id,'id':id}
+    return render(request,'user/overall_task.html' ,data)
 
 def task1(request):
     id =0
@@ -356,7 +452,7 @@ def blog(request):
     id = obj.id
     cr_id = obj.cr_id
     name = obj.name
-    data = { 'name': name , 'crid':cr_id}
+    data = { 'name': name , 'crid':cr_id,'id':id}
     if request.method == "POST":
         bname = request.POST['name']
         crid = request.POST['crid']
@@ -366,3 +462,31 @@ def blog(request):
         return redirect('blog')
 
     return render(request, 'user/blog.html' ,data)
+
+def yourprofile(request):
+    obj = UserProfile.objects.get(email = gmail)
+    data = { 'user': obj }
+    return render(request, 'user/inner_profile.html' ,data)
+
+
+def myprofile(request):
+    if request.method == 'POST':
+        crid = request.POST['crid']
+        name = request.POST['name']
+        phone = request.POST['phone']
+        whatsapp = request.POST['whatsapp']
+        state = request.POST['state']
+        year = request.POST['year']
+        college = request.POST['college']
+        city = request.POST['city']
+
+        user = UserProfile.objects.get(cr_id = crid)
+        user.name = name
+        user.phone = phone
+        user.whatsapp = whatsapp
+        user.state = state
+        user.year = year
+        user.college = college
+        user.city = city
+        user.save()
+    return redirect('yourprofile')    

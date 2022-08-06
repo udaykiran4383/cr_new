@@ -11,13 +11,28 @@
       <li class="nav-item" role="presentation">
         <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Team </button>
       </li>
-      <li id="yrank">Your Rank: {{rank}}</li>
+      <li id="yrank">
+      {% if inteam == True %}
+          Your Points: {{teampoint}}
+      {% else %}
+          Your Points: {{mypoint}}
+      {% endif %}
+       |
+
+       {% if inteam == True %}
+       Your Rank: {{teamrank}}
+       
+       {% else %}
+       Your Rank: {{rank}}
+
+       {% endif %} 
+       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         {% for user in user %}
+        {% comment %} {% if user.in_team == False %} {% endcomment %}
         <div class="row" id="crid1">
-          <!-- <div class="innerrow"> -->
             <div class="col-lg-4 col-md-4 col-sm-4">
               <span>Rank:</span>  {{ forloop.counter }}
             </div>
@@ -27,8 +42,8 @@
             <div class="col-lg-4 col-md-4 col-sm-4" >
               <span>Points: </span>{{ user.points}}
             </div>
-          <!-- </div> -->
         </div>
+        {% comment %} {% endif %} {% endcomment %}
         {% endfor %}
       </div>
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">

@@ -16,56 +16,56 @@
         <img src="{% static 'images/prologo.png' %}" alt="" id="prologo">
         <img src="{% static 'images/prow3.png' %}" alt="" id="prow3">
         <img src="{% static 'images/prow4.png' %}" alt="" id="prow4">
-        <div class="inner-form">
+        <div class="inner-form" >
             <div class="row display-flex justify-content-center fill">Fill in the details below</div>
             <form action="updateprofile" method="post">
                 {% csrf_token %}
                 <div class="row display-flex">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Username:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="text" name="name"  required>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
 
                         <label for="">College:</label>
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
 
                         <input type="text" name="college"  required>
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Year of Study:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="text" name="year"  required>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
 
                         <label for="">City:</label>
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="text" name="city"  required>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">State:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <select name="state" id="" required>
                             <option value="">Your State</option>
                             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -109,41 +109,41 @@
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Mobile:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="phone" name="phone"  required>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Whatsapp Number:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="phone" name="whatsapp"  required>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Motivation to join the Program:</label>
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <textarea name="sop" id="" cols="30" rows="10"  required></textarea>
 
                     </div>
                 </div>
                 <div class="row ">
-                    <div class="col-2 l">
+                    <div class="col-lg-2 col-sm-12 l">
                         <label for="">Referral Code:</label> 
 
                     </div>
-                    <div class="col-10 i">
+                    <div class="col-lg-10 col-sm-12 i">
                         <input type="bonus" name="bonus"  >
 
                     </div>

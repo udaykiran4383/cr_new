@@ -107,6 +107,7 @@
     width: fit-content;
     margin-left: 0vh;
     border-radius: 1vh;
+    width: 50%;
   }
 
   #tac{
@@ -118,6 +119,7 @@
     width: fit-content;
     margin-left: 0vh;
     border-radius: 1vh;
+    background-color: black;
   }
 
   #faydadekh{
@@ -191,7 +193,7 @@
   
   .tasks{
     height: 100vh;
-    margin-top: 25vh;
+    /* margin-top: 25vh; */
     overflow-x: hidden;
   }
 
@@ -203,7 +205,7 @@
   #taskni{
     position: absolute;
     right: 0;
-    bottom: -102vh;
+    bottom: 0;
   }
 
   .co{
@@ -252,6 +254,16 @@
     margin: 5vh;
     background: transparent;
   }
+  #blog-bt1{
+    color: white;
+    border: 1px solid white;
+    border-radius: 1vh;
+    /* padding:  0.5vh 2vh; */
+    /* margin: 5vh; */
+    background: transparent;
+  }
+
+
 
   input{
     background: transparent;
@@ -270,9 +282,12 @@
     padding-left: 5vw;
   }
 
-  .col-3{
+  .col-lg-3{
     display: flex;
     align-items: center;
+    color: white;
+  }
+  .col-lg-9{
     color: white;
   }
   
@@ -299,8 +314,17 @@
     display: none;
   }
 
+  .symb{
+    height: 3vh;
+  }
 
-
+  #p{
+    float: right; 
+    padding-right:10vw;
+  }
+  /* .inner-form{
+    color: white;
+  } */
 
 
 
@@ -344,17 +368,34 @@
       font-size: 2.2vh;
       margin-bottom: 11vh;
     }
-    #crid,#team,#ref,#tac{
+    #crid,#team{
+      font-size: 2.5vh;
+
+    }
+    
+    #tac{
+      margin-top: 0;
+      margin-bottom: 3vh;
       font-size: 2.5vh;
     }
+    #ref{
+      font-size: 2vh;
+      width: 90%;
+    }
     #taskni{
-      bottom: -95vh;
+      bottom: 0;
     }
     #taskgra{
       margin-top: 5vh;
     }
-    .r,#blog-bt{
+    #blog-bt{
       font-size: 3vh;
+    }
+    .r{
+      font-size: 1.8vh;
+    }
+    .col-lg-3{
+      font-size: 2vh;
     }
   }
 
@@ -416,6 +457,23 @@
     .r,#blog-bt{
       font-size: 2vh;
     }
+    th,td{
+      font-size: 1.3vh;
+    }
+    .symb{
+      font-size: 2vh;
+    }
+    #p{
+      float: none;
+    }
+    #ref{
+      width: 90%;
+      margin-bottom: 3vh;
+      margin-top: 0;
+    }
+    #tac{
+      width: 90%;
+    }
   }
   @media screen and (max-width:320px) {
     #hello{
@@ -423,6 +481,12 @@
     }
     #crid,#team,#ref,#tac,#faydadekh{
       font-size: 2vh;
+    }
+    .sidenav{
+      width: 63px;
+    }
+    .main{
+      margin-left: 62px;
     }
     
   }

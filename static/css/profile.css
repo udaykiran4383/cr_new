@@ -4,7 +4,7 @@
     background-color: black;
     overflow-x: hidden;
     overflow-y: hidden;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url('../images/prowave.png');
     background-size: cover; 
     background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 
 #prow4{
     position: absolute;
-    bottom: 0;
+    bottom: -43vh;
     left: 0;
 }
 
@@ -33,8 +33,7 @@
     opacity: 0.88;
     backdrop-filter: blur(30px);
     border-radius: 1vh;
-    margin: 0 15vw;
-    margin-top: 6vh;
+    margin: 8vh 15vw;
     padding-right: 5vh;
 }
 
@@ -52,6 +51,7 @@ input,select,textarea{
     border: 1px solid rgb(197, 195, 195);
     width: 100%;
     padding: 0.5vh;
+    font-size: 3vh;
 }
 
 .s{
@@ -74,4 +74,100 @@ input,select,textarea{
 .b{
     margin: 2.5vh;
     padding: 1vh 3vh;
+}
+
+#blog-bt2{
+    /* color: black; */
+    background: transparent;
+    align-self: center;
+    border: 1px solid black;
+    border-radius: 1vh;
+    margin-left: 5vh;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+}
+
+@media screen and (max-width:1024px) {
+    .inner-form{
+        padding: 0 ;
+    }
+    #prow4{
+        height: 69vh;
+    }
+    .fill{
+        font-size: 4vh;
+    }
+    input{
+        padding: 0;
+        font-size: 2vh;
+    }
+    .inner-form{
+        margin-right: 10vw;
+        margin-left: 10vw;
+        margin-top:18vh;
+    }
+}
+
+@media  screen and (max-width : 768px) {
+    #prow4{
+        height: 50vh;
+        bottom: -25vh;
+    }
+    .fill{
+        font-size: 4vh;
+    }
+    input,label,textarea{
+        padding: 0;
+        font-size: 2vh;
+    }
+    .inner-form{
+        margin-right: 5vw;
+        margin-left: 5vw;
+        margin-top:18vh;
+    }
+    #prow3{
+        height: 80vh;
+    }
+}
+
+@media  screen and (max-width : 425px) {
+    .fill{
+        font-size: 2vh;
+    }
+    .inner-form{
+        padding: 0;
+        margin: 0 5vw;
+    }
+    #blog-bt2{
+        font-size: 1.8vh;
+    }
+    .l{
+        font-size: 1.8vh;
+    }
+    #prow4{
+       bottom: 0;
+       width: 100vw; 
+    }
+    #prow3{
+        height: 49vh;
+    }
+    #prologo{
+        height: 12vh;
+    }
+    .inner-form{
+        margin-right: 5vw;
+        margin-left: 5vw;
+        margin-top:10vh;
+        margin-bottom:5vh;
+
+    }
+    #prow4{
+        bottom: -45vh;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .l{
+        padding-left: 3vh;
+    }
 }

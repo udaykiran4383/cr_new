@@ -36,6 +36,7 @@ class Invite(models.Model):
     sender_cr_id = models.CharField(max_length=200 ,default="")
     receiver = models.CharField(max_length=200)
     status = models.BooleanField(default='False')
+    decline = models.BooleanField(default='False')
     
     def __str__(self):
         return self.sender_name 

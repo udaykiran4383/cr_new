@@ -3,111 +3,207 @@
 {% load static %}
 
 {% if team_status == True %}
+
+
+
+
+<div class="moreimp">
+
+
 <div class="r">
     Your Team 
-    <p style="float: right; padding-right:10vw;">Status: {{team_status}} </p> 
+    
 
 </div>
 <div class="a">
     <div class="row">
-        <div class="col-3">Team Name :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{teamname}}</div>
+        <div class="col-lg-3 col-sm-12">Team Name :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{teamname}}</div>
     </div>
     <div class="row">
-        <div class="col-3">Team Leader :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{leader}} {{leader_id}}</div>
+        <div class="col-lg-3 col-sm-12">Team Leader :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{leader}} {{leader_id}}</div>
     </div>
     {% for teamreg in teamreg  %}
     <div class="row">
-        <div class="col-3">Member {{forloop.counter}} :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{teamreg.receiver}} | Status : {{teamreg.status}}</div>
+        <div class="col-lg-3 col-sm-12">Member {{forloop.counter}} :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{teamreg.receiver}} | Status : 
+        {% if teamreg.status == True%}
+           <img src="{% static 'images/tick.png' %}" alt="" class="symb"> Accepted
+        {% else %}
+            <img src="{% static 'images/clock.png' %}" alt="" class="symb"> Pending
+        {% endif %}
+        </div>
     </div>
       
     
     {% endfor %}
 </div>
-
+</div>
 
 {% else %}
+
+{% if inteam == True %}
+<div class="moreimp">
+
+
 <div class="r">
     Team Formation status
-    <p style="float: right; padding-right:10vw;">Status: {{team_status}} </p> 
+    <p  id="p">Status: 
+    {% if team_status == True %}
+       Team Formed
+    {% else %}
+        Team Formation Pending
+    {% endif %}
+     </p>   
 </div>
 <div class="a">
     <div class="row">
-        <div class="col-3">Team Name :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{teamname}}</div>
+        <div class="col-lg-3 col-sm-12">Team Name :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{teamname}}</div>
     </div>
     <div class="row">
-        <div class="col-3">Team Leader :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{leader}} {{leader_id}}</div>
+        <div class="col-lg-3 col-sm-12">Team Leader :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{leader}} {{leader_id}}</div>
     </div>
     {% for teamreg in teamreg  %}
     <div class="row">
-        <div class="col-3">Member {{forloop.counter}} :</div>
-        <div class="col-9" id="ref" style="width: 50%;">{{teamreg.receiver}} | Status : {{teamreg.status}}</div>
+        <div class="col-lg-3 col-sm-12">Member {{forloop.counter}} :</div>
+        <div class="col-lg-9 col-sm-12" id="ref" >{{teamreg.receiver}} | Status : 
+        {% if teamreg.status == True%}
+           <img src="{% static 'images/tick.png' %}" alt="" class="symb"> Accepted
+        {% else %}
+            {% if teamreg.decline == True%}
+            <img src="{% static 'images/cross.png' %}" alt="" class="symb"> Rejected
+            <div>
+                <a href="{% url 'sendagain' id teamreg.receiver teamreg.sender %}">
+                <button id="blog-bt1" >Send Invite Again</button></a>
+            </div>
+            <form action="newinvite" method ="post">
+                {% csrf_token %}
+                <p>Invite any other CR</p>
+                <input type="hidden" name="sender_id" value="{{teamreg.sender}}" id="">
+                <input type="hidden" name="current_id" value="{{teamreg.receiver}}" id="">
+
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="">Name:</label>
+
+                    </div>
+                    <input type="text" name="name" style="border: 1px solid white;">
+                </div>
+                <div class="row">
+                    <div class="col-lg-2 col-sm-12">
+                        <label for="">CR ID:</label>
+
+                    </div>
+                    <input type="text" name="crid" style="border: 1px solid white;">
+                </div>
+                <button id="blog-bt1" type="submit" style="margin: 1vh 2vw;"> Send </button>
+            </form>
+            
+            {% else %}
+            <img src="{% static 'images/clock.png' %}" alt="" class="symb"> Pending
+
+            {% endif %}
+        {% endif %}
+        </div>
     </div>
       
     
     {% endfor %}
 </div>
+</div>
+{% else %}
+<div class="moreimp">
+
 
 <div class="r">Form Your Team</div>
 <form action="team" method="post">
     {% csrf_token %}
     <div class="a">
         <div class="row">
-            <div class="col-3">
-                <label for="">Team Name</label>
+            <div class="col-lg-3 col-sm-12">
+                Team Name
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="teamname" id="tac">
             </div>
         </div>
         <div class="row">
-            <div class="col-3">
-                <label for="">Team Leader</label>
+            <div class="col-lg-3 col-sm-12">
+                Team Leader
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="teamleader" value="{{name}}" id="tac">
-                <label for="">CR ID</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                CR ID
+            </div>
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="crid1" value="{{cr_id}}" id="tac">
             </div>
         </div>
+        
         <div class="row">
-            <div class="col-3">
-                <label for="">Team Member</label>
+            <div class="col-lg-3 col-sm-12">
+                Team Member
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="member2" id="tac">
-                <label for="">CR ID</label>
-                <input type="text" name="crid2" id="tac">
-
+                
             </div>
         </div>
         <div class="row">
-            <div class="col-3">
-                <label for="">Team Member</label>
+            <div class="col-lg-3 col-sm-12">
+                CR ID
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
+                <input type="text" name="crid2" id="tac">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                Team Member
+            </div>
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="member3" id="tac">
-                <label for="">CR ID</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                CR ID
+            </div>
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="crid3" id="tac">
             </div>
         </div>
+        
         <div class="row">
-            <div class="col-3">
-                <label for="">Team Member</label>
+            <div class="col-lg-3 col-sm-12">
+                Team Member
             </div>
-            <div class="col-9">
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="member4" id="tac">
-                <label for="">CR ID</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-12">
+                CR ID
+            </div>
+            <div class="col-lg-9 col-sm-12">
                 <input type="text" name="crid4" id="tac">
             </div>
         </div>
+        
         <button type="submit" id="blog-bt">Submit</button>
     </div>
 </form>
+</div>
+{% endif %}
 
 
 

@@ -5,7 +5,7 @@
 
 <!-- <h1>Dashboard</h1> -->
 
-<div class="fuild-container">
+<div class="moreimp">
     <img src="{% static 'images/globe.png' %}" id="globe" alt="">
     <img src="{% static 'images/new.png' %}" id="new" alt="">
     <div id="dots">
@@ -21,30 +21,26 @@
             CR ID-{{cr_id}}
         </div>
 
-        <button class="row" id="team" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Team Details <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
-        </button>
+        <a href="team" style="text-decoration:none;">
+        <div class="row" id="team" >
+            Team Details 
+        </div>
+        
+        </a>
 
-        <div class="row" id="ref">
+
+        <div class="row" id="ref" style="width:fit-content;">
             Referral Code: {{ref}}
         </div>
 
         <div class="row" id="faydadekh">
             Use this code to invite your friends to the CR program and form a team with them to win exciting prizes and gifts 
         </div>
-        <div class="row" id="tac">
-            Terms and Conditions
-        </div>
+        <button class="row" id="tac" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Terms and Conditions <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
+        </button>
     </div>
-    <div class="tasks" id="task">
-        <img src="{% static 'images/taskgra.png' %}" alt="" id="taskgra">
-        <img src="{% static 'images/taskni.png' %}" alt="" id="taskni">
-        <div class="row m">
-            <div class="co">
-                Task 1
-            </div>
-        </div>
-    </div>
+    
 
     <!-- <h3>Task 0</h3>
     <a href="team" class="btn btn-outline-success">Form Team</a>

@@ -1,0 +1,314 @@
+
+{% extends "user/base_dash.html" %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<style>
+    #showform{
+        display: none;
+    }
+    label,input{
+        color: black;
+    }
+    input{
+        padding: 0;
+    }
+</style>
+<!-- <h1>Dashboard</h1> -->
+    
+    <div class="moreimp" style="padding-top: 6vh;padding-bottom:6vh">
+    <!-- <div class="fluid-container"> -->
+        <!-- <img src="{% static 'images/prologo.png' %}" alt="" id="prologo"> -->
+        <!-- <img src="{% static 'images/prow3.png' %}" alt="" id="prow3"> -->
+        <!-- <img src="{% static 'images/prow4.png' %}" alt="" id="prow4"> -->
+        <div class="inner-form">
+            <div class="row display-flex justify-content-center fill">Your Profile</div>
+            <div class="row display-flex">
+                <div class="col-lg-3 col-sm-12 l">
+                    Username: 
+                </div>
+                <div class="col-lg-8 col-sm-12 l">{{user.name}}</div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 col-sm-12 l">
+                    College:
+                </div>
+                <div class="col-lg-8 col-sm-12 l">
+                    {{user.college}}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 col-sm-12 l">
+                    Year of Study:
+
+                </div>
+                <div class="col-lg-8 col-sm-12 l">
+                    {{user.year}}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 l">
+
+                    City:
+                </div>
+                <div class="col-lg-8 l">
+                    {{user.city}}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 l">
+
+                    State:
+                </div>
+                <div class="col-lg-8 l">
+                    {{user.state}}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 l">
+                    Mobile:
+
+                </div>
+                <div class="col-lg-8 l">
+                    {{user.phone}}
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-lg-3 l">
+                    Whatsapp Number:
+
+                </div>
+                <div class="col-lg-8 l">
+                    {{user.whatsapp}}
+                </div>
+            </div>
+
+            <button id="blog-bt2" onclick="update()">Update Profile</button>
+            <div id="showform">
+
+                <form action="myprofile" method="post" style="color:black">
+                    {% csrf_token %}
+                    <input type="hidden" value="{{user.cr_id}}" name="crid">
+                    <div class="row display-flex">
+                        <div class="col-lg-3 l">
+                            <label for="">Username:</label>
+    
+                        </div>
+                        <div class="col-lg-9 i">
+                            <input type="text" name="name"  required>
+    
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+    
+                            <label for="">College:</label>
+                        </div>
+                        <div class="col-lg-9 i">
+    
+                            <input type="text" name="college"  required>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+                            <label for="">Year of Study:</label>
+    
+                        </div>
+                        <div class="col-lg-9 i">
+                            <input type="text" name="year"  required>
+    
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+    
+                            <label for="">City:</label>
+                        </div>
+                        <div class="col-lg-9 i">
+                            <input type="text" name="city"  required>
+    
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+                            <label for="">State:</label>
+    
+                        </div>
+                        <div class="col-lg-9 i">
+                            <select name="state" id="" required>
+                                <option value="">Your State</option>
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                <option value="Daman and Diu">Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+    
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+                            <label for="">Mobile:</label>
+    
+                        </div>
+                        <div class="col-lg-9 i">
+                            <input type="phone" name="phone"  required>
+    
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-lg-3 l">
+                            <label for="">Whatsapp Number:</label>
+    
+                        </div>
+                        <div class="col-lg-9 i">
+                            <input type="phone" name="whatsapp"  required>
+    
+                        </div>
+                    </div>
+                    <div class="row display-flex justify-content-center">
+                        <div class="s" style="display: flex;justify-content:center;">
+                            <button class="btn btn-outline-success b" type="submit">Submit</button>
+    
+                        </div>
+    
+                        
+                    </div>
+                    
+                </form>
+            </div>
+
+            <!-- <div class="row display-flex justify-content-center fill">Fill in the details below</div>
+            <form action="updateprofile" method="post">
+                {% csrf_token %}
+                <div class="row ">
+                    <div class="col-lg-3 l">
+                        <label for="">State:</label>
+
+                    </div>
+                    <div class="col-lg-9 i">
+                        <select name="state" id="" required>
+                            <option value="">Your State</option>
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chandigarh">Chandigarh</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                            <option value="Daman and Diu">Daman and Diu</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Lakshadweep">Lakshadweep</option>
+                            <option value="Puducherry">Puducherry</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana">Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>
+                        </select>
+
+                    </div>
+                </div>
+                
+                
+                <div class="row ">
+                    <div class="col-lg-3 l">
+                        <label for="">Motivation to join the Program:</label>
+
+                    </div>
+                    <div class="col-lg-9 i">
+                        <textarea name="sop" id="" cols="30" rows="10"  required></textarea>
+
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-lg-3 l">
+                        <label for="">Referral Code:</label> 
+
+                    </div>
+                    <div class="col-lg-9 i">
+                        <input type="bonus" name="bonus"  >
+
+                    </div>
+                </div>
+                <div class="row display-flex justify-content-center">
+                    <div class="s" style="display: flex;justify-content:center;">
+                        <button class="btn btn-outline-success b" type="submit">Submit</button>
+
+                    </div>
+
+                    
+                </div>
+                
+            </form> -->
+
+        </div>
+      <!-- </div> -->
+
+</div>
+
+<script>
+    function update() {
+        var x = document.getElementById("showform");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
+</script>
+
+
+
+{% endblock content %}

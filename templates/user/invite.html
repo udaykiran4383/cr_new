@@ -29,7 +29,7 @@
         <a href="{% url 'dashboard' %}" class="chalu"><img src="{% static 'images/dash_home.png' %}" id="home" alt=""></a>
         <a href="{% url 'profile' %}"><img src="{% static 'images/profile.png' %}" alt="" id="home"></a>
         <a href="{% url 'leaderboard' %}"><img src="{% static 'images/lead.png' %}" alt="" id="home"></a>
-        <a href="#task"><img src="{% static 'images/task.png' %}" alt="" id="home"></a>
+        <a href="{% url 'task' %}"><img src="{% static 'images/task.png' %}" alt="" id="home"></a>
         <a href=""><img src="{% static 'images/invite.png' %}" alt="" id="home"></a> 
         <a href="{% url 'team' %}"><img src="{% static 'images/team.png' %}" alt="" id="home"></a>
         <a href="{% url 'blog' %}"><img src="{% static 'images/blognav.png' %}" alt="" id="home"></a>
@@ -58,12 +58,17 @@
         <tr>
           <th>{{ forloop.counter }}</th>
           <td>{{ invite.sender_name}}</td>
-          {% if invite.status == False %}
-          <td><a href="{% url 'accept' id cr invite.sender %}"><button class="btn btn-primary">Accept</button></a></td>
-          <td><button class="btn btn-primary">Decline</button></td>
+          {% if invite.status == False and invite.decline == False %}
+          <td><a href="{% url 'accept' id cr invite.sender %}"><button id="blog-bt1"><img src="{% static 'images/tick.png' %}" class="symb" alt=""> Accept</button></a></td>
+          <td><a href="{% url 'reject' id cr invite.sender %}"><button id="blog-bt1"><img src="{% static 'images/cross.png' %}" class="symb" alt=""> Decline</button></a></td>
           
           {% else %}
+          {% if invite.status == True %}
           <td>Accepted</td>
+          {% endif %}
+          {% if invite.decline == True %}
+          <td>Rejected</td>
+          {% endif %}
           {% endif %}
 
         </tr>
