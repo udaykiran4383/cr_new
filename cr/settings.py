@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*$+0vmo2l3d#01za%#r3ii$_+2akx99x2z+3t&4od2^h+yyd33'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*','localhost']
 
@@ -45,6 +45,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
     'rest_framework',
+    'import_export',
+    'corsheaders',
+    'ap22',
+    'ydp',
+    'fest',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -52,7 +57,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
-SITE_ID = 2
+SITE_ID = 4
 LOGIN_REDIRECT_URL = '/'
 
 # Additional configuration settings
@@ -81,9 +86,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'cr.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -166,7 +174,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'lasttest940@gmail.com'
-EMAIL_HOST_PASSWORD = 'afmrlfooncalvizc'
+EMAIL_HOST_USER = 'cr.abhyuday.iitbombay@gmail.com'
+EMAIL_HOST_PASSWORD = 'rtajrwtogwxbqeew'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+
+CSRF_TRUSTED_ORIGINS = ['https://cr.abhyudayiitb.org']

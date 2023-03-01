@@ -10,10 +10,110 @@
         <img src="{% static 'images/taskgra.png' %}" alt="" id="taskgra">
         <img src="{% static 'images/taskni.png' %}" alt="" id="taskni">
         <div class="row m">
-            <div class="co">
-                Task 1
+                    <div class="co">
+<p style="font-size:3vh;"> Task 3: Hope Model</p>
+<p style="font-size:2vh;">To register people in the Hope Model and help underprivileged children with their education. </p >
+<p style="font-size:2.5vh;"> Task Details: <a href="https://docs.google.com/document/d/1glxt1sXF72J1GFJDn6aigl-X5VKOtuKQrVUPNKK0TAM/edit?usp=drivesdk" >Link</a></p>
+
+
+
+         <a href="{% url 'task1' id=id %}"  ><button id="blog-bt2" style="border:2.5px solid black;border-radius:1vh; background:transparent;color:blue;" type="submit" >Submit Your Google drive link </b></button></a>
+{% if my.proof != "" %}
+<p style="font-size:2vh;padding-top:2vh;">       Proof Verification Status :
+        {% if my.task1_status == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">  Approved
+        {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">  pending
+        {% endif %}
+</p>
+{% endif %}
             </div>
         </div>
+
+        </div>
+
+
+	<div class="row m">
+	            <div class="co">
+<p style="font-size:3vh;"> Task 2: Action Plan - Case Study Competition</p>
+<p style="font-size:2vh;">To promote the gist of entrepreneurship among the student through case study competition. The CRs have to conduct a case study competition in their college where the team have >
+<p style="font-size:2.5vh;"> Task Details: <a href="https://docs.google.com/document/d/1NtbmG7AhxITzba---IP06KgdBn7lveUr5xHRkl3zfNY/edit?usp=drivesdk" >Link</a></p>
+
+
+
+         <a href="{% url 'task1' id=id %}"  ><button id="blog-bt2" style="border:2.5px solid black;border-radius:1vh; background:transparent;color:blue;" type="submit" >Submit Your Google drive link </b></button> </a>
+{% if my.proof != "" %}
+<p style="font-size:2vh;padding-top:2vh;">       Proof Verification Status :
+        {% if my.task1_status == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">  Approved
+        {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">  pending
+        {% endif %}
+</p>
+{% endif %}
+            </div>
+        </div>
+
+	</div>
+        <div class="row m">
+       <div class="row m">
+
+            <div class="co">
+<p style="font-size:3vh;"> Task 1: Clothes Donation Drive</p>
+<p style="font-size:2vh;">To collect old but usable clothes by organizing a clothes donation drive in your college which will be distributed among less fortune.</p>
+<p style="font-size:2.5vh;"> Task Details: <a href="https://docs.google.com/document/d/13MiCDBKSXk5WV9Lm3TjMPvQikNNGIO-wu-ZISMJ5pcg/edit" >Link</a></p>
+<p style="font-size:3vh;">Bonus Task 1: Hope Model</p>
+<p style="font-size:2vh;">We have released a bonus task for you to earn few extra points that will help you in future to climb up the leaderboard and get better incentives.</p>
+<p style="font-size:2.5vh;">Bonus Task Details: <a href="https://docs.google.com/document/d/1PeMPfQh2DGtHnNva3-CcG3IW1kYTtSqwZ2XRfJIISec/edit?usp=sharing" >Link</a></p>
+<p style="font-size:3vh;">Bonus Task 2: Action Plan Competition</p>
+<p style="font-size:2vh;">We launched our flagship competition called Action Plan which the Asia's Fastest growing social Entrepreneurship Competition.
+
+We have released the Bonus Task 2 for the same competition whose details can be found below</p>
+<p style="font-size:2.5vh;">Bonus Task Details: <a href="https://docs.google.com/document/d/18eaum36_F9OEvRxJDXriIg6ioHmhPo1bbCVUSX2ozzg/edit">Link</a></p>
+
+
+
+         <a href="{% url 'task1' id=id %}"  ><button id="blog-bt2" style="border:2.5px solid black;border-radius:1vh; background:transparent;color:blue;" type="submit" >Submit Your Google drive link </button> </a>
+{% if my.proof != "" %}
+<p style="font-size:2vh;padding-top:2vh;">       Proof Verification Status :
+        {% if my.task1_status == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">  Approved
+        {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">  pending
+        {% endif %}
+</p>
+{% endif %}
+            </div>
+        </div>
+
+            <div class="co">
+<p style="font-size:3vh;"> Task 0: Form your teams</p>
+<ul>
+<li style="font-size:2vh;"> 
+Get your teammates registered on the portal</li>
+<li style="font-size:2vh;">Click on the "Form Team” icon on the dashboard. Now add your friend's Name and CR ID and click submit button </li>
+<li style="font-size:2vh;"> Your Teammates will receive the notification on their dashboard. Once everyone accepts the request your team will be formed</li>
+</ul>
+<p style="font-size:3vh;">Bonus Task !!</p>
+<ul>
+<li style="font-size:2vh;">
+Refer your friends/students from your college or other colleges , to this College representative Program and get a minimum of 15 registrations by using your Referral code for the CR Program from your college or your city.
+</li>
+<li style="font-size:2vh;">
+Points :
+200 points for 15 registrations.
+10 points per registration after 15 registrations. (Optional)</li>
+<li style="font-size:2vh;">
+Process:
+You have been sent a referral code through the mail with which you have signed in as a College Representative, after registration.
+Ask your friends to fill in that code while entering their details on the portal.
+You can also check the portal dashboard for the same.</li>
+</ul> 
+	<!--	<a href="{% url 'task1' id=id %}"  ><button id="blog-bt2" type="submit" > View Details </button> </a>-->
+            </div>
+        </div>
+       <div class="row m">
+
     </div>
 </div>
 

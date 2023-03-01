@@ -31,7 +31,8 @@
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         {% for user in user %}
-        {% comment %} {% if user.in_team == False %} {% endcomment %}
+        {% if forloop.counter <= 10 %} 
+	
         <div class="row" id="crid1">
             <div class="col-lg-4 col-md-4 col-sm-4">
               <span>Rank:</span>  {{ forloop.counter }}
@@ -43,11 +44,12 @@
               <span>Points: </span>{{ user.points}}
             </div>
         </div>
-        {% comment %} {% endif %} {% endcomment %}
+        {% endif %} 
         {% endfor %}
       </div>
       <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
         {% for team in teams %}
+        {% if forloop.counter <= 10 %}  
         <div class="row" id="crid1">
           <div class="col-lg-4 ">
             <span>Rank:</span> {{ forloop.counter }}
@@ -59,6 +61,7 @@
             <span>Points: </span>{{ team.teampoint}}
           </div>
         </div>
+        {% endif %}
         {% endfor %}
       </div>
     </div>

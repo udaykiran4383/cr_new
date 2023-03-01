@@ -1,3 +1,13 @@
+.blink{
+animation-name: example;
+  animation-duration: 1.5s;
+ animation-iteration-count: infinite;
+}
+
+@keyframes example {
+  from {color: black;}
+  to {color: white;}
+}
 .cust-container{
     background-color: black;
     height: auto;
@@ -5,9 +15,14 @@
 }
 .moreimp{
   background-color: black;
+  color:white;
   min-height: 100vh;
 }
-
+#greet{
+color:white;
+font-size:2.7vh;
+max-width:78%;
+}
 .sidenav {
     height: 100%;
     width: 120px;
@@ -52,7 +67,8 @@
   }
 
   #items{
-      position: absolute;
+      position: relative;
+      overflow-y:auto;
       bottom: 0;
   }
 
@@ -65,6 +81,7 @@
       position:absolute;
       right: 0;
       bottom: 0;
+      z-index:1;
   }
 
   #dots{
@@ -120,6 +137,7 @@
     margin-left: 0vh;
     border-radius: 1vh;
     background-color: black;
+    z-index:5;
   }
 
   #faydadekh{
@@ -209,11 +227,11 @@
   }
 
   .co{
-    
+    padding:5vh;
     color: white;
     background: linear-gradient(111.61deg, rgba(217, 217, 217, 0.7) -8.77%, rgba(217, 217, 217, 0) 100%);
     backdrop-filter: blur(5px);
-    height: 50vh;
+    height: auto;
     width: 50vw;
   }
 
@@ -355,6 +373,9 @@
 
 
   @media screen and (max-width:768px) {
+    .m{
+	height:auto;
+    }
     .sidenav{
       width: 106px;
     }
@@ -401,6 +422,12 @@
 
 
   @media screen and (max-width:425px) {
+    .co{
+width:70vw;
+}
+#greet{
+font-size:2.2vh;
+}
     .sidenav{
       width: 76px;
     }
@@ -417,12 +444,13 @@
       height: 31vh;
     }
     #new{
-      height: 29vh;
+      height: 23vh;
     }
     .except{
       padding: 0;
     }
     #faydadekh{
+      margin-bottom:8vh;
       width: 70vw;
     }
     #w1{
@@ -470,9 +498,6 @@
       width: 90%;
       margin-bottom: 3vh;
       margin-top: 0;
-    }
-    #tac{
-      width: 90%;
     }
   }
   @media screen and (max-width:320px) {

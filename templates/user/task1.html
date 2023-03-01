@@ -5,22 +5,33 @@
 
 <!-- <h1>Dashboard</h1> -->
 
-<div class="fuild-container">
-    <h2>Task 1 </h2>
-    <h4>Steps:</h4>
-    <ol>
-        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
-        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
-        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
-        <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id.</li>
-    </ol>
+<div class="moreimp">
+    <h2>Task 1 Submission </h2>
     <h4>Proof Submission:</h4>
-    <form action="" method="post">
+    <form action="{% url 'task1' id=id %}" method="post">
         {% csrf_token %}
-        <textarea name="proof" id="" cols="30" rows="10" placeholder="Enter your google drive link here"></textarea>
+        <textarea name="proof" id="" style="color:white;" cols="30" rows="10" placeholder="Enter your google drive link here"></textarea>
         <button type="submit" class="btn btn-primary" style="display:block">Submit</button>
     </form>
-    <h1>Proof Status : {{task1}}</h1>
+{% if inteam == False %}
+        Proof Verification Status :
+        {% if task == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">  Approved
+        {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">  pending
+        {% endif %}
+    {% else %}
+        {% if inteam == True and teamform == True %}
+        Proof Verification Status :
+            {% if task == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">   Approved
+            {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">   pending
+            {% endif %}
+	{% else %}
+Your are in team formation process kindly form the team and then do the task!
+        {% endif %}
+    {% endif %}
 </div>
 
 

@@ -1,45 +1,8 @@
-
+{% extends "user/base_dash.html" %}
+{% block content %}
 {% load static %}
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CR | Dashboard</title>
-    <link rel="icon" type="image/x-icon" href="{% static 'images/black1.png' %}">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/dashstyle.css' %}">
-  </head>
-  <body>
 
-  {% comment %} Alert Messages {% endcomment %}
-  {% comment %} {% for message in messages%}
-    <div  class="alert alert-warning alert-dismissible fade show"  role="alert"  style="margin: 0">
-      <strong>{{message}}</strong> 
-      <button    type="button"    class="btn-close"    data-bs-dismiss="alert"    aria-label="Close"  ></button>
-    </div>
-  {% endfor %} {% endcomment %}
-
-  <div class="moreimp">
-    <div class="sidenav">
-      <div class="row" id="majbori">
-        <img src="{% static 'images/sun.png' %}" id="sun" alt="">
-      </div>
-      <div class="row" id="items">
-        <a href="{% url 'dashboard' %}" class="chalu"><img src="{% static 'images/dash_home.png' %}" id="home" alt=""></a>
-        <a href="{% url 'profile' %}"><img src="{% static 'images/profile.png' %}" alt="" id="home"></a>
-        <a href="{% url 'leaderboard' %}"><img src="{% static 'images/lead.png' %}" alt="" id="home"></a>
-        <a href="{% url 'task' %}"><img src="{% static 'images/task.png' %}" alt="" id="home"></a>
-        <a href=""><img src="{% static 'images/invite.png' %}" alt="" id="home"></a> 
-        <a href="{% url 'team' %}"><img src="{% static 'images/team.png' %}" alt="" id="home"></a>
-        <a href="{% url 'blog' %}"><img src="{% static 'images/blognav.png' %}" alt="" id="home"></a>
-
-      </div>
-      <!-- 
-      <a class="nav-link active" href="teamLeaderboard">Team Leaderboard</a>
-    -->
-    </div>
-    <div class="main">
+    <div class="moreimp">
       {% if in_team == True %}
       <h4>You are already in a team. You will no longer be able to get team formation request</h4>
     {% else %}
@@ -59,8 +22,8 @@
           <th>{{ forloop.counter }}</th>
           <td>{{ invite.sender_name}}</td>
           {% if invite.status == False and invite.decline == False %}
-          <td><a href="{% url 'accept' id cr invite.sender %}"><button id="blog-bt1"><img src="{% static 'images/tick.png' %}" class="symb" alt=""> Accept</button></a></td>
-          <td><a href="{% url 'reject' id cr invite.sender %}"><button id="blog-bt1"><img src="{% static 'images/cross.png' %}" class="symb" alt=""> Decline</button></a></td>
+          <td><a href="{% url 'accept' id invite.receiver invite.sender_cr_id %}"><button id="blog-bt1"><img src="{% static 'images/tick.png' %}" class="symb" alt=""> Accept</button></a></td>
+          <td><a href="{% url 'reject' id invite.receiver invite.sender_cr_id %}"><button id="blog-bt1"><img src="{% static 'images/cross.png' %}" class="symb" alt=""> Decline</button></a></td>
           
           {% else %}
           {% if invite.status == True %}
@@ -82,13 +45,7 @@
       
   </div>
     
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-    <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
-
-
-  </body>
-</html>
+{% endblock content %}    
 
 
     

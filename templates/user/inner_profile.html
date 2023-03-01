@@ -86,7 +86,7 @@
             <button id="blog-bt2" onclick="update()">Update Profile</button>
             <div id="showform">
 
-                <form action="myprofile" method="post" style="color:black">
+                <form action="{% url 'myprofile' id=id %}" method="post" style="color:black">
                     {% csrf_token %}
                     <input type="hidden" value="{{user.cr_id}}" name="crid">
                     <div class="row display-flex">
@@ -95,7 +95,7 @@
     
                         </div>
                         <div class="col-lg-9 i">
-                            <input type="text" name="name"  required>
+                            <input type="text" name="name"required >
     
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                         </div>
                         <div class="col-lg-9 i">
     
-                            <input type="text" name="college"  required>
+                            <input type="text" name="college" required>
                         </div>
                     </div>
                     <div class="row ">
@@ -115,7 +115,7 @@
     
                         </div>
                         <div class="col-lg-9 i">
-                            <input type="text" name="year"  required>
+                            <input type="text" name="year" required>
     
                         </div>
                     </div>
@@ -179,11 +179,11 @@
                     </div>
                     <div class="row ">
                         <div class="col-lg-3 l">
-                            <label for="">Mobile:</label>
+                            <label for="">Mobile: </label>
     
                         </div>
                         <div class="col-lg-9 i">
-                            <input type="phone" name="phone"  required>
+                            <input type="phone" name="phone" pattern="[123456789][0-9]{9}" required>
     
                         </div>
                     </div>
@@ -193,7 +193,7 @@
     
                         </div>
                         <div class="col-lg-9 i">
-                            <input type="phone" name="whatsapp"  required>
+                            <input type="phone" name="whatsapp" pattern="[123456789][0-9]{9}" required>
     
                         </div>
                     </div>

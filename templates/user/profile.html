@@ -18,7 +18,8 @@
         <img src="{% static 'images/prow4.png' %}" alt="" id="prow4">
         <div class="inner-form" >
             <div class="row display-flex justify-content-center fill">Fill in the details below</div>
-            <form action="updateprofile" method="post">
+            <form action="{% url 'updateprofile' id=id %}" method="post">
+
                 {% csrf_token %}
                 <div class="row display-flex">
                     <div class="col-lg-2 col-sm-12 l">
@@ -30,6 +31,8 @@
 
                     </div>
                 </div>
+<input type="hidden" name="email" value="{{email}}">
+                <input type="hidden" name="myid" id="" value="{{id}}">
                 <div class="row ">
                     <div class="col-lg-2 col-sm-12 l">
 
@@ -46,7 +49,7 @@
 
                     </div>
                     <div class="col-lg-10 col-sm-12 i">
-                        <input type="text" name="year"  required>
+                        <input type="number" name="year" pattern="[1-9]{1}"  required>
 
                     </div>
                 </div>
@@ -114,7 +117,7 @@
 
                     </div>
                     <div class="col-lg-10 col-sm-12 i">
-                        <input type="phone" name="phone"  required>
+                        <input type="phone" name="phone" pattern="[123456789][0-9]{9}"  required>
 
                     </div>
                 </div>
@@ -124,7 +127,7 @@
 
                     </div>
                     <div class="col-lg-10 col-sm-12 i">
-                        <input type="phone" name="whatsapp"  required>
+                        <input type="phone" name="whatsapp" pattern="[123456789][0-9]{9}"   required>
 
                     </div>
                 </div>

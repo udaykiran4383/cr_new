@@ -19,6 +19,10 @@ class UserProfile(models.Model):
     in_team = models.BooleanField(default='False')
     ref = models.CharField(max_length=200, default="")
     bonus_ref = models.CharField(max_length=200, default="")   #for form
+    proof = models.CharField(max_length=1000,default="")
+    task1_status = models.BooleanField(default='False')
+    refer_count = models.IntegerField(default="0")
+    tname = models.CharField(max_length=200,default="")
     def __str__(self):
         return self.name
 
@@ -39,18 +43,18 @@ class Invite(models.Model):
     decline = models.BooleanField(default='False')
     
     def __str__(self):
-        return self.sender_name 
+        return self.sender_name
 
 class Team(models.Model):
     teamname = models.CharField(max_length=200 ,default="")
-    leader = models.CharField(max_length=200 ,default="")
-    crid1 = models.CharField(max_length=200 ,default="")
-    member2 = models.CharField(max_length=200 ,default="")
-    crid2 = models.CharField(max_length=200 ,default="")
-    member3 = models.CharField(max_length=200 ,default="")
-    crid3 = models.CharField(max_length=200 ,default="")
-    member4 = models.CharField(max_length=200 ,default="")
-    crid4 = models.CharField(max_length=200  ,default="")
+    leader = models.CharField(max_length=200 ,default="",null=True)
+    crid1 = models.CharField(max_length=200 ,default="",null=True)
+    member2 = models.CharField(max_length=200 ,default="",null=True)
+    crid2 = models.CharField(max_length=200 ,default="",null=True)
+    member3 = models.CharField(max_length=200 ,default="",null=True)
+    crid3 = models.CharField(max_length=200 ,default="",null=True)
+    member4 = models.CharField(max_length=200 ,default="",null=True)
+    crid4 = models.CharField(max_length=200  ,default="",null=True)
     teampoint = models.IntegerField(default="0")
     team_status = models.BooleanField(default='False')
     proof = models.CharField(max_length=1000,default="")

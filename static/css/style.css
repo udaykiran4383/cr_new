@@ -3,9 +3,83 @@
     src: url(../fonts/Highman.ttf);
 }
 
+#side{
+transform: rotateY(180deg);
+    /* float: right; */
+    position: absolute;
+    right: 0;
+    margin-top: 19vh;
+}
+.fa{
+  
+    text-decoration:none;
+  color:white;
+  margin:2vh;
+  }
+#nav-bt{
+}
+.h{
+text-align:center;
+font-weight:bold;
+font-size:2.5vh;
+margin:1vh;
+}
+.cr{
+text-align:center;
+font-weight:bold;
+}
+
+p{
+font-size:2.2vh;
+}
+
+.moreimp{
+color:white;
+background:black;
+min-height:100vh;
+}
+.name{
+text-align:center;
+font-weight:bold;
+font-size:2.5vh;
+}
+.incentlogo{
+display:flex;
+justify-content:center;
+}
+.incentdiscription{
+text-align:center;
+font-weight:bold;
+}
 /* img > .part{
     width: 30vw;
 } */
+
+.testo{
+height: 20vh;
+    color: white;
+    padding: 2vh;
+    font-size: 1.5vh;
+    margin: 0 10vh;
+    background-color: white;
+    align-self: center;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#mobinc{
+width:80%;
+}
+
+.incentouter{
+font-size:1.7vh;
+}
+
+#inclog,#inclogu{
+    height: 9vh;
+}
 
 .parten{
     margin-bottom: 5vh;
@@ -38,13 +112,18 @@
     margin: 3vh 6vw;
     border-radius: 1.5vh;
     padding: 1.5vh;
+position:fixed;
+top:0;
+width: -webkit-fill-available;
+z-index:10;
+backdrop-filter:blur(20px);
 }
 .cust{
     display: flex;
     justify-content: flex-end;
     align-items: center;
     color: white;
-    z-index: 2;
+   z-index: 2;
     font-family: 'Lato', sans-serif;
 }
 
@@ -97,11 +176,13 @@
     border: 5px solid #00DDFE;
     font-size: 2vh;
     border-radius: 1vh;
+    backdrop-filter: blur(8px);
 }
 
 
 .home{
-    height: 125vh;
+padding-top:15vh;
+    height: auto;
     border-bottom: 1px solid rgb(230, 227, 227);
 }
 .about{
@@ -112,11 +193,7 @@
     
 }
 .responsibilities{
-    /* background-image: url('../images/resp.png'); */
-    /* background-position: center; */
-    /* background-size:cover; */
-    /* background-repeat: no-repeat; */
-    height: 100vh;
+    height:60vh;
 }
 
 .incentive{
@@ -137,8 +214,8 @@ h1{
 
 .col{
      background: #D9D9D9;
-     height: 30vh;
-     padding: 5vh;
+     height: 35vh;
+     padding: 3vh;
      margin: 3vh;
 }
 
@@ -200,11 +277,10 @@ h1{
 }
 
 .kya{
-    background: rgba( 255, 255, 255, 0.5 );
-/* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
-backdrop-filter: blur( 1.5px );
--webkit-backdrop-filter: blur( 1.5px );
-/* border-radius: 10px; */
+font-family: 'Lato', sans-serif;
+padding:3vh;
+background: linear-gradient(126.85deg, rgba(199, 199, 199, 0.9) -2.5%, rgba(199, 199, 199, 0) 95.78%);
+backdrop-filter: blur(4px);
 border: 1px solid rgba( 255, 255, 255, 0.18 );
 display: flex;
 flex-direction: column;
@@ -269,7 +345,6 @@ font-size: 2.5vh
 
 
 .structure{
-    background-image: url('../images/side.png');
     background-repeat: no-repeat;
 }
 
@@ -283,7 +358,7 @@ font-size: 2.5vh
     font-family: 'Lato', sans-serif;
     font-size: 2vh;
     /* width: 30%; */
-    width: 50%;
+/*    width: 50%; */
 }
 
 .le{
@@ -339,14 +414,18 @@ font-size: 2.5vh
     padding: 0.2vh 1vh;
     font-size: 2.5vh;
     font-family: 'Lato', sans-serif;
-    width:fit-content;
+    max-width:77%;
 }
 
 .testi{
     height: 35vh;
-    margin: 0 10vh;
+    color:white;
+padding:2vh;
+font-size:1.5vh;
+	margin: 0 10vh;
     background-color: rgb(136, 133, 133);
     align-self: center;
+    overflow-y:auto;
 }
 .bahar{
     margin: 0 50vh;
@@ -397,17 +476,17 @@ font-size: 2.5vh
 }
 
 #mobg{
-    position: absolute;
-     bottom: -28vh;left: 0vh;
+    position:relative;
+     left: 0vh;
       width: 100%;
       z-index: -1;
       border-bottom: 1px solid rgb(206, 205, 205);
 }    
 #mobh{
-    position: absolute; 
+	position:absolute; 
     left:-20vh; 
-    bottom:-20vh;
-    /* width: 100vw; */
+    width: 25vw;
+   z-index:-1;
 }  
 .mobr{
     --bs-gutter-x: 0; 
@@ -434,8 +513,7 @@ font-size: 2.5vh
     justify-content: flex-end;
 }
 #incen{
-    position: absolute; 
-    top:261vh ;left:-20vh; 
+	width:35vw;
     transform: rotateZ(30deg);
 }
 #mht{
@@ -467,7 +545,8 @@ font-size: 2.5vh
     padding-right: 8vh;
 }
 #mno{
-    padding-left: 11vh;
+    padding-left: 11vh; 
+    max-width:70%;
 }
 
 #carouselExampleControls6{
@@ -490,17 +569,32 @@ font-size: 2.5vh
     }
 }
 
+
 /* small size */
-@media screen and (max-width:375px){
-    .logo
+
+@media screen and (max-width:425px){
+.responsibilities{
+height:90vh;
+}
+   .logo
     #resl{
         width:20vh;
     }
+#inclogu{
+height:5vh;
+}
+
     #incen{
         top: 287vh;
-        width: 100vw;
+        width: 80vw;
     }
-    .uphead{
+#mno{
+max-width:100%;
+}
+#side{
+display:none;
+}    
+.uphead{
         font-size: 7vh;
         line-height: 5.5vh;
     }
@@ -524,16 +618,15 @@ font-size: 2.5vh
     #bt{
         padding: 0.5vh 4.5vh;
     }
-    #mobg{
-        bottom: 21vh;
-    }
     #mobh{
+	display:none;
         width: 60vw;
         left: -23vw;
         bottom: 18vh;
     }
     .home{
-        height: 76vh;
+padding-top:10vh;
+        height:auto;
     }
     .head{
         margin-left: 3vh;
@@ -550,6 +643,17 @@ font-size: 2.5vh
     .mobr{
         padding: 0;
     }
+.col{
+padding:3vh 8vh;
+}
+.col69{
+height:29vh;
+width:62%;
+}
+	 .kya{
+padding:5vh;
+margin:1vh 5vh;
+}
     .about{
         height: auto;
     }
@@ -558,9 +662,6 @@ font-size: 2.5vh
     }
     .niche{
         font-size: 1.8vh;
-    }
-    .col{
-        padding: 3vh;
     }
     #moba{
         left: -36vh;
@@ -595,10 +696,11 @@ font-size: 2.5vh
         height: 22vh;
     }
     .headc{
-        padding-top: 11vh;
+        padding-top: 0;
         /* padding-left: 7vh; */
         font-size: 6vh;
         text-align: center;
+	width:100%;
     }
     #sam1,#sam2{
         padding: 0;
@@ -640,7 +742,8 @@ font-size: 2.5vh
         left: -9vh;
     }
     #mpy{
-        width: 100vw;
+	opacity:0.3;  
+      width: 100vw;
     }
     #mfq{
         display: none;
@@ -656,6 +759,7 @@ font-size: 2.5vh
     }
     .uttar{
         margin-right: 6vh;
+	max-width:100%;
         font-size: 1.8vh;
     }
     .extt{
@@ -687,3 +791,17 @@ font-size: 2.5vh
     }
 }
 
+
+@media screen and (max-width:375px){
+.kya{
+padding:4vh;
+}
+.col{
+padding:3vh 6vh;
+}
+}
+@media screen and (max-width:320px){
+.kya{
+padding:3vh;
+}
+}
