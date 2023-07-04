@@ -17,11 +17,13 @@ animation-name: example;
   background-color: black;
   color:white;
   min-height: 100vh;
+  overflow:hidden;
 }
 #greet{
 color:white;
+position: relative;
 font-size:2.7vh;
-max-width:78%;
+max-width:50%;
 }
 .sidenav {
     height: 100%;
@@ -81,7 +83,7 @@ max-width:78%;
       position:absolute;
       right: 0;
       bottom: 0;
-      z-index:1;
+      z-index:0;
   }
 
   #dots{
@@ -128,6 +130,7 @@ max-width:78%;
   }
 
   #tac{
+    position: absolute;
     color: white;
     font-size: 3vh;
     margin-top: 3vh;
@@ -229,7 +232,9 @@ max-width:78%;
   .co{
     padding:5vh;
     color: white;
-    background: linear-gradient(111.61deg, rgba(217, 217, 217, 0.7) -8.77%, rgba(217, 217, 217, 0) 100%);
+    /* background: linear-gradient(111.61deg, rgba(217, 217, 217, 0.7) -8.77%, rgba(217, 217, 217, 0) 100%); */
+    background: linear-gradient(90deg, #2f2e2e 23.23%, #003552 97.71%);
+
     backdrop-filter: blur(5px);
     height: auto;
     width: 50vw;
@@ -520,3 +525,10 @@ font-size:2.2vh;
     .sidenav a {font-size: 18px;}
   } */
 
+.dash-car{
+  position: absolute;
+  height: 52vw;
+  bottom: 5vw;
+  right: 0;
+  /* left: 150vw; */
+}

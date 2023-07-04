@@ -22,10 +22,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-*$+0vmo2l3d#01za%#r3ii$_+2akx99x2z+3t&4od2^h+yyd33'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
 
-ALLOWED_HOSTS = ['*','localhost']
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+ALLOWED_HOSTS = ['*','localhost', '127.0.0.1']
 
 
 # Application definition
@@ -57,7 +58,7 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
-SITE_ID = 4
+SITE_ID = 5
 LOGIN_REDIRECT_URL = '/'
 
 # Additional configuration settings
@@ -161,12 +162,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#STATICFILES_DIRS = [
-#    BASE_DIR / "static"
-#]
+STATICFILES_DIRS = [
+   BASE_DIR / "static"
+]
 
 import os 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -179,6 +180,7 @@ EMAIL_HOST_PASSWORD = 'rtajrwtogwxbqeew'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'https'
+ACCOUNT_DEFAULT_HTTP_PROTOCOL = 'http'
 
-CSRF_TRUSTED_ORIGINS = ['https://cr.abhyudayiitb.org']
+# CSRF_TRUSTED_ORIGINS = ['https://cr.abhyudayiitb.org']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:8000/', 'http://127.0.0.1:8000']

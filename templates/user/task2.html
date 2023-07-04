@@ -1,0 +1,40 @@
+
+{% extends "user/base_dash.html" %}
+{% block content %}
+{% load static %}
+
+<div class="moreimp">
+    {% if task2 == True %}
+    <img src="{% static 'images/tick.png' %}" alt="" class="symb">&nbsp;&nbsp;&nbsp;&nbsp;TASK 2 IS DONE
+            {% else %}
+    {% comment %} <img src="{% static 'images/clock.png' %}" alt="" class="symb">  pendin {% endcomment %}
+
+    <h2>Task 2 Submission </h2>
+    <h4>Proof Submission:</h4>
+    <form action="{% url 'task2' id=id %}" method="post">
+        {% csrf_token %}
+        <textarea name="proof2" id="" style="color:white;" cols="30" rows="10" placeholder="Enter your google drive link here"></textarea>
+        <button type="submit" class="btn btn-primary" style="display:block">Submit</button>
+    </form>
+{% if inteam == False %}
+        Proof Verification Status :
+        {% if task2 == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">  Approved
+        {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">  pending
+        {% endif %}
+    {% else %}
+        {% if inteam == True and teamform == True %}
+        Proof Verification Status :
+            {% if task2 == True %}
+<img src="{% static 'images/tick.png' %}" alt="" class="symb">   Approved
+            {% else %}
+<img src="{% static 'images/clock.png' %}" alt="" class="symb">   pending
+            {% endif %}
+	{% else %}
+Your are in team formation process kindly form the team and then do the task!
+        {% endif %}
+    {% endif %}
+</div>
+{%endif%}
+{% endblock content %}

@@ -13,7 +13,7 @@
   </head>
   <body>
       <div class="fluid-container">
-        <img src="{% static 'images/prologo.png' %}" alt="" id="prologo">
+        <img src="{% static 'images/logo.png' %}" alt="" id="prologo">
         <img src="{% static 'images/prow3.png' %}" alt="" id="prow3">
         <img src="{% static 'images/prow4.png' %}" alt="" id="prow4">
         <div class="inner-form" >
@@ -141,16 +141,16 @@
 
                     </div>
                 </div>
-                <div class="row ">
-                    <div class="col-lg-2 col-sm-12 l">
+<div class="row ">
+                    {% comment %} <div class="col-lg-2 col-sm-12 l">
                         <label for="">Referral Code:</label> 
 
-                    </div>
+                    </div> {% endcomment %}
                     <div class="col-lg-10 col-sm-12 i">
                         <input type="bonus" name="bonus"  >
 
                     </div>
-                </div>
+                </div> 
                 <div class="row display-flex justify-content-center">
                     <div class="s" style="display: flex;justify-content:center;">
                         <button class="btn btn-outline-success b" type="submit">Submit</button>

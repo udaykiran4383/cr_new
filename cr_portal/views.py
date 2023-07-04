@@ -82,7 +82,8 @@ def updateprofile(request, id ):
         li=range(1000,5000)
         cr_global = random.sample(li,1)
         referral = random.sample(li,1)
-        cr="CR"+ str(cr_global[0])
+        # MH xx AE xxxx
+        # CR 23 MH 1234
         ref="REF"+ str(referral[0])
         myid = request.POST['myid']
         name = request.POST['name']
@@ -91,6 +92,78 @@ def updateprofile(request, id ):
         phone = request.POST['phone']
         whatsapp = request.POST['whatsapp']
         state = request.POST['state']
+        state_code = ""
+        if (state == 'Delhi'):
+            state_code = "DL"
+        elif (state == 'Maharastra'):
+            state_code = "MH"
+        elif (state == 'Uttar Pradesh'):
+            state_code = "UP"
+        elif (state == 'Madhya Pradesh'):
+            state_code = "MP"
+        elif (state == 'Arunachal Pradesh'):
+            state_code = "AR"
+        elif( state == 'Andaman and Nicobar Islands'):
+            state_code = "AN"
+        elif (state == 'Assam'):
+            state_code = "AS"
+        elif( state == 'Bihar'):
+            state_code = "BH"
+        elif (state == 'Chandigarh'):
+            state_code = "CH"
+        elif (state == 'Dadar and Nagar Haveli'):
+            state_code = "DN"
+        elif (state == 'Chhattisgarh'):
+            state_code = "CT"
+        elif (state == 'Daman and Diu'):
+            state_code = "DD"
+        elif (state == 'Lakshadweep'):
+            state_code = "LD"
+        elif (state == 'Puducherry'):
+            state_code = "PC"
+        elif (state == 'Goa'):
+            state_code = "GO"
+        elif (state == 'Gujarat'):
+            state_code = "GJ"
+        elif (state == 'Haryana'):
+            state_code = "HR"
+        elif (state == 'Himachal Pradesh'):
+            state_code = "HP"
+        elif (state == 'Jammu and Kashmir'):
+            state_code = "JK"
+        elif (state == 'Jharkhand'):
+            state_code = "JK"
+        elif (state == 'Karnataka'):
+            state_code = "KT"
+        elif (state == 'Kerala'):
+            state_code = "KR"
+        elif (state == 'Manipur'):
+            state_code = "MN"
+        elif (state == 'Meghalaya'):
+            state_code = "MG"
+        elif (state == 'Mizoram'):
+            state_code = "MZ"
+        elif (state == 'Nagaland'):
+            state_code = "NG"
+        elif (state == 'Odisha'):
+            state_code = "OD"
+        elif (state == 'Punjab'):
+            state_code = "PJ"
+        elif (state == 'Rajasthan'):
+            state_code = "RJ"
+        elif (state == 'Sikkim'):
+            state_code = "SK"
+        elif (state == 'Tamil Nadu'):
+            state_code = "TN"
+        elif (state == 'Telangana'):
+            state_code = "TL"
+        elif (state == 'Tripura'):
+            state_code = "TR"
+        elif (state == 'Uttarakhand'):
+            state_code = "UK"
+        else:
+            state_code = "WB"                                                                     
+        cr=  "CR 23 " + state_code + " " + str(cr_global[0])
         year = request.POST['year']
         college = request.POST['college']
         city = request.POST['city']
@@ -165,6 +238,10 @@ def team(request ,id):
             cr_id1 = request.POST['crid1']
             member2 = request.POST['member2']
             cr_id2 = request.POST['crid2']
+            # print("CR ID: ",cr_id2)
+            # print("LENGTH OF CR ID: ",len(cr_id2))
+            # if(len(cr_id2) < 12):
+            #     return render(request, 'index.html')
             member3 = request.POST['member3']
             cr_id3 = request.POST['crid3']
             member4 = request.POST['member4']
@@ -173,6 +250,7 @@ def team(request ,id):
             objes = UserProfile.objects.all()
             member = UserProfile.objects.get(email =email)
             member.in_team = True
+            member.is_individual = False
             member.save()
             invite2 = Invite(sender_name = leader, sender= id, sender_cr_id = cr_id , receiver = cr_id2)
             invite2.save()
@@ -217,7 +295,7 @@ def team(request ,id):
             data ={
                 'teamreg':teamreg,
                 'name':name,'cr_id':cr_id,'id':id,
-                'team':team,'teamname':team.teamname,'leader':team.leader,'team_status':team.team_status,'leader_id':team.crid1,'cr':numcr , 'temp':temp ,'inteam':inteam
+                'team':team,'teamname':team.teamname,'leader':team.leader,'team_status':team.team_status,'leader_id':team.crid1,'cr':numcr , 'temp':temp ,'inteam':inteam, 'user': user
             }
             return render(request , 'user/team.html',data )
         else:
@@ -367,9 +445,9 @@ def task1(request ,id):
                   if obj.crid1 == cr_id or obj.crid2 == cr_id or obj.crid3 == cr_id or obj.crid4 == cr_id:
                     team = obj
                if team.team_status == True:
-               	   team.proof = proof
-                   team.task1_status = False
-                   team.save()
+                      team.proof = proof
+                      team.task1_status = False
+                      team.save()
                data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'teamform':team.team_status,'task':team.task1_status}
                return render(request, 'user/task1.html',data)
            elif user.in_team == False:
@@ -382,6 +460,78 @@ def task1(request ,id):
               return redirect('team' , id=id)
        data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'task':user.task1_status}
        return render(request, 'user/task1.html',data)
+    except UserProfile.DoesNotExist:
+        user = None
+        data = {'id':id , 'email':email}
+        return render(request, 'user/profile.html' ,data)
+    
+def task2(request ,id):
+    main = User.objects.get(id = id)
+    email = main.email
+    try:
+       user = UserProfile.objects.get(email=email)
+       cr_id = user.cr_id
+
+       if request.method == "POST":
+           proof = request.POST['proof2']
+           if user.in_team == True:
+               team ={}
+               objs = Team.objects.all()
+               for obj in objs:
+                  if obj.crid1 == cr_id or obj.crid2 == cr_id or obj.crid3 == cr_id or obj.crid4 == cr_id:
+                    team = obj
+               if team.team_status == True:
+                      team.proof2 = proof
+                      team.task2_status = False
+                      team.save()
+               data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'teamform':team.team_status,'task2':team.task2_status}
+               return render(request, 'user/task2.html',data)
+           elif user.in_team == False:
+               user.proof2 = proof
+               user.task2_status = False
+               user.save()
+               data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'task2':user.task2_status}
+               return render(request, 'user/task2.html',data)
+           else:
+              return redirect('team' , id=id)
+       data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'task2':user.task2_status}
+       return render(request, 'user/task2.html',data)
+    except UserProfile.DoesNotExist:
+        user = None
+        data = {'id':id , 'email':email}
+        return render(request, 'user/profile.html' ,data)
+    
+def task3(request ,id):
+    main = User.objects.get(id = id)
+    email = main.email
+    try:
+       user = UserProfile.objects.get(email=email)
+       cr_id = user.cr_id
+
+       if request.method == "POST":
+           proof = request.POST['proof3']
+           if user.in_team == True:
+               team ={}
+               objs = Team.objects.all()
+               for obj in objs:
+                  if obj.crid1 == cr_id or obj.crid2 == cr_id or obj.crid3 == cr_id or obj.crid4 == cr_id:
+                    team = obj
+               if team.team_status == True:
+                      team.proof3 = proof
+                      team.task3_status = False
+                      team.save()
+               data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'teamform':team.team_status,'task3':team.task3_status}
+               return render(request, 'user/task3.html',data)
+           elif user.in_team == False:
+               user.proof3 = proof
+               user.task3_status = False
+               user.save()
+               data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'task3':user.task3_status}
+               return render(request, 'user/task3.html',data)
+           else:
+              return redirect('team' , id=id)
+       data={'id':id,'cr_id':cr_id,'inteam':user.in_team,'task3':user.task3_status}
+       return render(request, 'user/task3.html',data)
     except UserProfile.DoesNotExist:
         user = None
         data = {'id':id , 'email':email}
@@ -493,7 +643,7 @@ def export(request):
             "College":obj.college,
             "In team":obj.in_team,
             "State":obj.state,
-	    "sop" : obj.sop,
+        "sop" : obj.sop,
             "Year":obj.year,
             "Proof Submission":obj.proof,
         })
@@ -589,16 +739,16 @@ def simple_upload(request):
         imported_data = dataset.load(new_persons.read(),format='xlsx')
         #print(imported_data)
         for data in imported_data:
-        	print(data[1])
-        	value = Team(
-        		data[0],
-        		data[1],
-        		 data[2],data[3],
-        		 data[4],data[5],
+            print(data[1])
+            value = Team(
+                data[0],
+                data[1],
+                 data[2],data[3],
+                 data[4],data[5],
                          data[6],data[7],
                          data[8],data[9],
-        		)
-        	value.save()       
+                )
+            value.save()       
         
         #result = person_resource.import_data(dataset, dry_run=True)  # Test the data import
 

@@ -5,9 +5,10 @@
 
 <!-- <h1>Dashboard</h1> -->
 
+
 <div class="moreimp">
-    <img src="{% static 'images/globe.png' %}" id="globe" alt="">
-    <img src="{% static 'images/new.png' %}" id="new" alt="">
+    <img src="{% static 'images/dash-car.png' %}" alt="" class="dash-car">
+    {% comment %} <img src="{% static 'images/globe.png' %}" id="globe" alt=""> {% endcomment %}
 <!--    <div id="dots">
         <img src="{% static 'images/w1.png' %}" id="w1" alt="">
         <img src="{% static 'images/w1.png' %}" id="w1" alt="">
@@ -15,35 +16,35 @@
 
     <div class="row except" >
         <div class="row" id="hello">
-            Hello {{my.name}},
+            Hello <b>{{my.name}}</b>
         </div>
 	<div class="row" id="greet">
 Welcome to the College Representative Program by Abhyuday, IIT Bombay. It is great to have you as a member of the Abhyuday Family. Wishing you the best for every step in your journey.
         </div>
 	
 <div class="row blink" id="greet" style="margin-top:3vh;">
-Task 3 Released !! Check out the tasks section !!
+New Tasks Coming Soon !! Check out the tasks section !!
         </div>
 
         <div class="row" id="crid">
             CR ID-{{my.cr_id}}
         </div>
-
+        {% if my.is_individual == False%}
         <a href="{% url 'team' id=id %}" style="text-decoration:none;">
         <div class="row" id="team" >
             Team Details <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
         </div>
-        
+        {%endif%}
         </a>
 
 
-        <div class="row" id="ref" style="width:fit-content;">
+        {% comment %} <div class="row" id="ref" style="width:fit-content;">
             Referral Code: {{my.ref}}
-        </div>
+        </div> {% endcomment %}
 
-        <div class="row" id="faydadekh">
+        {% comment %} <div class="row" id="faydadekh">
             Use this code to invite your friends to the CR program and form a team with them to win exciting prizes and gifts 
-        </div>
+        </div> {% endcomment %}
         <button class="row" id="tac" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Terms and Conditions <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
         </button>
@@ -108,7 +109,6 @@ Task 3 Released !! Check out the tasks section !!
         </div>
     </div>
 </div>
-
 
 
 {% endblock content %}

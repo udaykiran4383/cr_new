@@ -12,6 +12,7 @@ from .models import Student ,Team, Mentor, Playbook, D2c
 from .serializers import *
 import random
 import array
+from django.views.decorators.csrf import csrf_protect
 # from django.core.mail import send_mail
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
@@ -185,6 +186,7 @@ def teams_list(request):
 
 
 @api_view(['GET','POST'])
+@csrf_protect
 def login_view(request):
     username = request.data['username']
     password = request.data['password']

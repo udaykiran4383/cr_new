@@ -1,0 +1,795 @@
+{% load static %}
+{% load socialaccount %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CR Portal</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/black1.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+<style>
+.col69{
+height:30vh;
+margin:3vh;
+width:25%;
+}
+@media screen and (max-width:425px){
+.col69{
+height:29vh;
+width:62%;
+}
+}
+</style>
+  <body>
+    {% if user.is_authenticated %}
+        {% if user.first_name == "" %}
+            Session expired
+            <a href="{% provider_login_url 'google' %}">Please Login</a>
+        {% else %}
+<div class="moreimp" >
+<p>Welcome, {{ user.first_name }} !</p>
+       <p>   <a href="dashboard/{{ user.id }}">
+            <button id="bt" type="submit">Enter the Dashboard</button>
+          </a></p>
+          
+        {% endif %}
+        {% else %}
+        <div class="fluid-container">
+            <canvas id="c"></canvas>
+            <div class="home">
+              <div class="cont ">
+                <nav class="navbar navbar-expand-lg bg-dark">
+                  <div class="container-fluid">
+                    <div class="logo">
+                      <a href="https://abhyudayiitb.org"><img src="{% static 'images/abhyuday logo.png' %}" id="resl" alt="" ></a> 
+                    </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                      <ul class="navbar-nav me-auto mb-2 mb-lg-0 " >
+                        <li class="nav-item">
+                          <a class="nav-link tabs" aria-current="page" href="#" style="color: white;">Home</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tabs" href="#about" style="color: white;">About</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tabs" href="#incenti" style="color: white;">Incentives</a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link tabs" href="#faq" style="color: white;">FAQ'S</a>
+                        </li>
+                     <!--   <li class="nav-item">
+                          <a class="nav-link tabs" href="#test" style="color: white;">Testimonials</a>
+                        </li>-->
+                        <li class="nav-item">
+                          <a class="nav-link tabs" href="#cont" style="color: white;">Contact</a>
+                        </li>
+			<li class="nav-item" style="position:absolute;right:5vh;">
+			 <form action="{% provider_login_url 'google' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="bt" style="padding:0.5vh 5vh;">Sign in</button>
+              </form>
+                        </li>                        
+                        
+                      </ul>
+                      
+                    </div>
+                  </div>
+                </nav>
+              </div>
+              <div class="contain">
+                <span id="box" class="random one"></span>
+                <div class="row uphead">
+                  College
+                </div>
+                <div class="row uphead">
+                  Representative
+                </div>
+<div class="row uphead">
+Program
+                </div>
+
+                <div class="row sub-head">
+                  Student internship program which brings together socially active 
+                  students across India and lead them towards building better society
+                </div>
+              </div>
+              
+              <div class="btn">
+		<form action="{% provider_login_url 'google' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" id="bt">Sign in</button>
+              </form>
+              </div>
+             <div> <img src="{% static 'images/grid.png' %}" id="mobg"  alt="">
+              <img src="{% static 'images/home.png' %}" width="500"  alt="" id="mobh">
+</div>
+            </div>
+            
+            <!-- About  -->
+            <div class="about" id="about">
+              <div class="row head">
+                ABOUT US
+              </div>
+              <div class="row kaam">
+                Abhyuday, IIT Bombay  is a student-run organization working
+                towards creating a sense of social responsibility and leadership
+                among the youth of India. 
+              </div>
+              <div class="row tum display-flex justify-content-center">
+                What is in it for you?
+              </div>
+              <div class="row">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                      <div class="row mobr" style="justify-content:center;" >
+                        <div class="col69  kya ">
+                          <div class="upar">
+                            Enhance your skillset
+                          </div>
+                          <div class="niche">
+                            Develop your personality,
+                            enhance your management 
+                            skills, public speaking skills 
+                            & most importantly team spirit
+                          </div>
+                        </div>
+                        <div class="col69  kya">
+                          <div class="upar">
+                            Strengthen your Network
+                          </div>
+                          <div class="niche">
+                            Connect with various college 
+                            students across India and 
+                            build new networking 
+                            opportunities within IIT 
+                            Bombay
+    
+                          </div>
+                        </div>
+                        <div class="col69 kya">
+                          <div class="upar">
+                            Be the face of your college
+                          </div>
+                          <div class="niche">
+                            Represent your college in a nationwide program
+    
+                          </div>
+                        </div>
+                       
+                      </div>
+                    </div>
+                    <div class="carousel-item">
+                      <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                      <div class="row mobr" style="justify-content:center;">
+                        <div class="col69 kya">
+                          <div class="upar">
+                            Boost your employability
+                          </div>
+                          <div class="niche">
+                            Chance to win letter of 
+                                recommendation from 
+                                Abhyuday, IIT Bombay & 
+                                outshine your resume
+    
+                          </div>
+                        </div>
+                        <div class="col69 kya">
+                          <div class="upar">
+                            Create a difference
+                          </div>
+                          <div class="niche">
+                            Orchestrate various social 
+    initiatives & campaigns to create
+     a strong impact in the lives 
+    of people around you
+    
+                          </div>
+                        </div>
+                        <div class="col69 kya">
+                          <div class="upar">
+                            Bring a smile on someone’s 
+    face
+                          </div>
+                          <div class="niche">
+                            You will realize that bringing 
+    a smile on someone’s face 
+    is highly satisfying. You just have 
+    to take the first step towards it
+    
+                          </div>
+                        </div>
+                       
+                      </div>
+    
+                    </div>
+                    
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <img src="{% static 'images/aboutli.png' %}" id="moba"  alt="">
+    
+            <div class="responsibilities">
+              <div class="row head " id="test " style="--bs-gutter-x: 0;">Responsibilities</div>
+              <div class="row " style="--bs-gutter-x: 0;">
+               <div class="col-3 respo">
+                <div class="dekh">Social Awareness</div>
+                <div class="padh">Put your thinking cap on and come 
+                  up with innovative ideas to reach 
+                  out to more people in order to magnify 
+                  the impact on the society  </div>
+               </div>
+<!--              <div class="row " id="mcord">-->
+                <div class="col-3 respo center ">
+                  <div class="dekh">Coordination</div>
+                  <div class="padh">Immense oppurtunities to coordinate
+                    with Abhyuday team in multi-city campaigns 
+                    and learn under the guidance of mentors of Abhyuday, IIT Bombay </div>
+                 </div>
+              <!--  </div>-->
+             <!--   <div class="row " id="mlead">-->
+                  <div class="col-3 respo ">
+                    <div class="dekh">Leadership</div>
+                    <div class="padh">Ideate, plan and execute events, campaigns 
+                      and competitions in your college with the assistance of Abhyuday, IIT Bombay </div>
+                   </div>
+                  </div>
+		              <img src="{% static 'images/incenli.png' %}" id="incen" alt="">
+
+                </div>
+              </div>
+            <!-- Incentives -->
+            <div class="incentive" id="incenti">
+              <h1>Incentives</h1>
+              <div class="row " style="display:flex;--bs-gutter-x: 0; padding: 0 3vh;">
+	        <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/cert.png' %}" id="inclog" alt="">
+                    </div>
+		 <div class="name">
+                      Certificate
+                    </div>
+
+                    <div class="incentdiscription">
+                      Certificates of Excellence to top CRs from Abhyuday, IIT Bombay
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/Vskills.png' %}" id="inclog" alt="">
+                    </div>
+			<div class="h" >Official Learning Partner</div>
+
+                    <div class="incentdiscription">
+                      Discount coupons worth 50% and 100 Internship opportunities to all the top performing CRs and discount coupons worth 30% to all the participants
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/3D GRAPHY.png' %}" id="inclog" alt="">
+                    </div>
+		    <div class="h">Official Internship Partner</div>
+                    <div class="incentdiscription">
+                      50 Internship opportunities in different sectors to all the top performing CRs
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/geeks for geeks.png' %}" id="inclog" alt="">
+                    </div>
+			<div class="h">Official Coding Partner</div>
+                    <div class="incentdiscription">
+                      Discount coupons worth Rs. 300 to all the participants and worth Rs.2000 to all the top performing CRs, gift hampers to the top winners
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row " style="--bs-gutter-x: 0; padding: 0 3vh;">
+                <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/stumagz.png' %}" id="inclog" alt="">
+                    </div>
+		 <div class="h">Official Outreach Partner</div>
+                    <div class="incentdiscription">
+                      100 Paid internship opportunities and discount coupons worth 55% to all the top performing CRs and discount coupons worth 45% to all the participants 
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/Unstop.png' %}" id="inclogu" alt="">
+                    </div>
+		 <div class="h">Official Online Hosting Partner</div>
+                    <div class="incentdiscription">
+                      Unstop Pro Membership Unstop worth Rs. 2999 and Rs 25k worth Unstop coins to all the top performing CRs
+                    </div>
+                  </div>
+                </div>
+                <div class="col" style="overflow-y:auto;">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/Coding Ninjas.png' %}" id="inclog" alt="">
+                    </div>
+<div class="h">Official Learning Partner</div>
+                    <div class="incentdiscription">
+                      200 Internship opportunities, free courses and discount vouchers worth 20% to all the top performing CRs, discount coupons worth 30% to all the participants and gift hampers to the top winners
+                    </div>
+                  </div>
+                </div>
+		<div class="col">
+                  <div class="incentouter">
+                    <div class="incentlogo">
+                      <img src="{% static 'images/incent/pranyas.jpg' %}" id="inclog" alt="">
+                    </div>
+<div class="h">Pranyas Development Foundation</div>
+                    <div class="incentdiscription">
+			100 Internship opportunities and gift hampers for the top performing CRs
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              
+              <span id="box2" class="random two"></span>
+              <div class="structure">
+                <img src="{% static 'images/side.png' %}" id="side" alt="" height="500"> 
+                <div class="row headc display-flex justify-content-center" >
+                  STRUCTURE
+                </div>
+                <div class="row my-3" style="--bs-gutter-x: 0; ">
+                  <div class="col-12" id="sam1">Sign in to be a CR</div>
+                  <div class="col-lg-7 col-sm-12 ab"> Click the sign in button on the home page and fill in the 
+                    details to get registered as a college representative.
+                    </div>
+                </div>
+                <div class="row my-3" style="--bs-gutter-x: 0; ">
+                  <div class="col-12" id="sam2">Form a Team</div>
+                  <div class="col-lg-7 col-sm-12 ab"> Go through the details of How to form a team in the 
+                    next slide below and follow the steps as mentioned.
+                    
+                    </div>
+                </div>
+                <div class="row my-3" style="--bs-gutter-x: 0; ">
+                  <div class="col-12" id="sam1">Complete the given tasks</div>
+                  <div class="col-lg-7 col-sm-12 ab"> After you form a team, you would be given various 
+                    tasks which have to be finished within the given time interval.
+                    </div>
+                </div>
+                <div class="row my-3" style="--bs-gutter-x: 0; ">
+                  <div class="col-12" id="sam2">Earn rewards and incentives</div>
+                  <div class="col-lg-7 col-sm-12 ab"> As mentioned before,finish the tasks and bag in various 
+                    incentives, certificates, internship opportunities, exciting gifts and coupons.
+                    </div>
+                </div>
+              </div>
+              </div>
+    
+            <!-- </div> -->
+            <img src="{% static 'images/htbli.png' %}" width="800" alt="" id="mht" >
+            <div class="htbit" >
+              <div class="row headc etc justify-content-center display-flex" style="--bs-gutter-x: 0; padding-top:5vh ">HOW TO BE IN A TEAM</div>
+              <div class="row team-head justify-content-center display-flex" style="--bs-gutter-x: 0 ;">This time we are conducting the CR Program in a team mode. </div>
+              <div class="row team-head justify-content-center display-flex" style="--bs-gutter-x: 0 ;">          To participate in a team with your friends,
+              </div>
+              <div class="row team-head justify-content-center display-flex" style="--bs-gutter-x: 0 ;">Follow these simple steps : </div>
+              <div class="dekh le">To create a team:</div>
+              <div class=" point">
+                <div class="pointer"> >> </div>
+                <div class="team-head">Register individually using Google Sign In. Click   <form action="{% provider_login_url 'google' %}" method="post" style="display:inline-block;">
+                {% csrf_token %}
+                <button type="submit" style="background:transparent;border:none;color:blue;" >here</button>
+              </form>
+              </div>
+
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer"> >> </div>
+                <div class="team-head">Get your teammates registered on the portal too!
+    
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer"> >> </div>
+                <div class="team-head" >Click on the "Form Team” icon on the dashboard. Now add 
+                  your friend's Name and CR ID and click submit button
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer"> >> </div>
+                <div class="team-head" >Your Teammates will receive the notification on their dashboard.
+                  Once everyone accepts the request your team will be formed
+                </div>
+              </div>
+    
+              <img src="{% static 'images/sqci.png' %}" width="500" id="msq"  alt="">
+    
+              <div class="dekh le" >To get added in someone’s team :</div>
+              <div class=" point">
+                <div class="pointer purple"> >> </div>
+                <div class="team-head">Simply register using Google Sign In. Click <form action="{% provider_login_url 'google' %}" method="post" style="display:inline-block;">
+                {% csrf_token %}
+                <button type="submit" style="background:transparent;border:none;color:blue;" >here</button>
+              </form>
+
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer purple"> >> </div>
+                <div class="team-head">To be added in someone's team you don't need to click on form team icon
+    
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer purple"> >> </div>
+                <div class="team-head" >Use the bell icon to check notification requesting you to join the team
+    
+                </div>
+              </div>
+              <div class=" point">
+                <div class="pointer purple"> >> </div>
+                <div class="team-head" >Accept the request to become part of the team
+    
+                </div>
+              </div>
+              <div class="team-head" id="mno" >NOTE : Clicking on "Form Team" icon will disallow you from being a part of another team. 
+                Click on this button only when you are setting up your own team for the first time. 
+                Once part of a team no further notifications will be received</div>
+              
+    
+            </div>
+            <div class="faq" id="faq">
+              <img src="{% static 'images/aboutli.png' %}" id="mfq"  alt="">
+              <div class="row head" style="padding-top: 5vh;">FAQs</div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">What can be the size of the team?</div>
+                  <div class="uttar">Minimum 3 - maximum 4</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">Should all the team members need to be from the same college?</div>
+                  <div class="uttar">Yes, team members should be from the same college.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">If I am the only person from my college can I still participate in the program?</div>
+                  <div class="uttar">Yes! You can participate but try to convince your friends to be part of your
+                    team because the tasks will demand additional assistance. In case you
+                    don't find anyone, don't worry we will help you out.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">Can I add teammates who have not registered on the portal?</div>
+                  <div class="uttar">No! you can add only those in your team who have registered on the portal.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">How long will this tenure be?</div>
+                  <div class="uttar">The official tenure will run for around 6 months. This is the time when the CR is expected to
+                    complete the tasks given and claim the rewards and incentives we provide.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">What is the eligibility criteria for becoming CR?</div>
+                  <div class="uttar">Students from any college, stream, branch can register for the CR program.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">How much time do we have to invest?</div>
+                  <div class="uttar">On an average, 1 to 2 hours of work weekly would suffice. You can choose
+                    your own hours!</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">How will I get my incentives?</div>
+                  <div class="uttar">The majority of incentives will be shared via online mode and in some
+                    cases, we might courier it to your address.</div>
+                </div>
+              </div>
+              <div class="point">
+                <div class="outer">
+                  <div class="question">?</div>
+                </div>
+                <div class="puribaat">
+                  <div class="prashna">Can I work from home?</div>
+                  <div class="uttar">Yes, you can work from home.</div>
+                </div>
+              </div>
+    
+              <div class="row headc extt display-flex justify-content-center" style="padding-top: 5vh;" id="test">Testimonials</div>
+              <img src="{% static 'images/pyra.png' %}" id="mpy"  width="400" alt="">
+              <div class="row bahar">
+                <div id="carouselExampleControls1" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active ">
+                      <div class="testi">
+     			<div class="disc">
+                          <p>
+                          During my internship experience with ABHYUDAY, IIT Bombay I was able to develop my skills of active listening, planning ,organising and Management skills. I particularly found direct interactions with these middle school children to be useful in improving my understanding regarding the issues they face nowadays. Although I found group sessions to be challenging, I believe they were valuable in developing my confidence . This internship helped me to connect with more people and the webinar sessions we had was informative and each assignments that were provided to us was important to be addressed in recent times let it be the careear counseling sessions we conducted or Eco-drive. 
+
+                          </p>
+                          <p>This internship was such a valuable experience for me.  </p>
+                        </div>
+                        <div class="name">Punnya Gopi</div>
+                        <div class="cr">Campus Ambassador (2021-22) </div> 
+                      </div>
+                    </div>
+                    <div class="carousel-item ">
+                      <div class="testi">
+      			<div class="disc">
+                          <p>
+
+                            It was an awesome experience working as a CR under Abhyuday, IIT Bombay. It helped me to grow both as a person and as a student. After the successful completion of the internship you will receive the certificate, letter of recommendation and other attractive perks and internship opportunities. The 6 month internship program will really be a stepping stone to your future.
+                          </p>
+                        </div>
+                        <div class="name">Nidhuna Suraj</div>
+                        <div class="cr">Campus Ambassador (2021-22)</div>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls1" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+    
+              </div>
+              <div class="parten">
+                <div class="row display-flex justify-content-center headc" style="padding-top: 0;" > Media Partners</div>
+                <div class="row">
+                  <div id="carouselExampleControls5" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                        <div class="row mobr" >
+                          <div class="col-lg-3  "  >
+                            <img src="{% static 'images/partner/1.png' %}" style="width: 18vw; height: 25vh; padding: 5vh 1vh;background-color: white;" alt="">
+                          </div>
+                          <div class="col-lg-3 " >
+                            <img src="{% static 'images/partner/2.png' %}" style="width: 18vw; height: 25vh; padding: 8vh 1vh;background-color: white;" alt="">
+                          </div>
+                          <div class="col-lg-3 " >
+                            <img src="{% static 'images/partner/3.jpg' %}" style="width: 18vw; height: 25vh;" alt="">
+                          </div>
+                          <div class="col-lg-3 "  >
+                            <img src="{% static 'images/partner/4.png' %}" style="width: 18vw; height: 25vh;" alt="">                          
+                          </div>
+                         
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <!-- <img src="..." class="d-block w-100" alt="..."> -->
+                        <div class="row mobr" >
+                          <div class="col-lg-3 ">
+                            <img src="{% static 'images/partner/5.png' %}" style="width: 20vw; height: 25vh;" alt="">                          
+                            
+                          </div>
+                          <div class="col-lg-3 ">
+                            <img src="{% static 'images/partner/6.jpg' %}" style="width: 20vw; height: 25vh;" alt="">                          
+                            
+                          </div>
+                          <div class="col-lg-3 ">
+                            <img src="{% static 'images/partner/7.png' %}" style="width: 20vw; height: 25vh;" alt="">                          
+                            
+                          </div>
+                          <div class="col-lg-3">
+                            <img src="{% static 'images/partner/8.jpg' %}" style="width: 20vw; height: 25vh;" alt="">                          
+                            
+                          </div>
+                         
+                        </div>
+      
+                      </div>
+                      
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls5" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                </div>
+                <div id="carouselExampleControls6" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active ">
+                       <div class="testo">
+			 <img src="{% static 'images/partner/1.png' %}" id="mobinc" alt="">
+                        </div>
+                    </div>
+                    <div class="carousel-item ">
+                       <div class="testo">
+			 <img src="{% static 'images/partner/2.png' %}" id="mobinc" alt="">
+                       </div> 
+                    </div>
+                    <div class="carousel-item ">
+                       <div class="testo"> 
+                        <img src="{% static 'images/partner/3.jpg' %}" id="mobinc" alt="">
+                       </div> 
+                    </div>
+			<div class="carousel-item ">
+                       <div class="testo">
+                        <img src="{% static 'images/partner/4.png' %}" id="mobinc" alt="">
+                       </div>
+                    </div>
+			<div class="carousel-item ">
+                       <div class="testo">
+                        <img src="{% static 'images/partner/5.png' %}" id="mobinc" alt="">
+                       </div>
+                    </div>
+			<div class="carousel-item ">
+                       <div class="testo">
+                        <img src="{% static 'images/partner/6.jpg' %}" id="mobinc" alt="">
+                       </div>
+                    </div>
+			<div class="carousel-item ">
+                       <div class="testo">
+                        <img src="{% static 'images/partner/7.png' %}" id="mobinc" alt="">
+                       </div>
+                    </div>
+			<div class="carousel-item ">
+                       <div class="testo">
+                        <img src="{% static 'images/partner/8.jpg' %}" id="mobinc" alt="">
+                       </div>
+                    </div>
+
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls6" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="contact" id="cont">
+                <div class="row  hetco  extt display-flex justify-content-center">CONTACT US</div>
+                <div class="row sampark display-flex justify-content-center">Feel free to reach out to us via call or text
+                </div>
+    
+                <div class="row" style="margin-top: 3vh;">
+		    <div class="col-lg-6 col-sm-12" style="display: flex; align-items: center;flex-direction:column;">
+                    <div class="manager">
+                      Ashutosh Khandare
+                      
+                    </div>
+                    <div class="post" style="padding-bottom:0;">
+                      Media and PR Manager
+                    </div>
+                    <div class="post" style="line-height:3vh;">
+
+                      +91 9890398576
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-sm-12" style="display: flex; align-items: center;flex-direction:column;">
+                    <div class="manager">
+                      Tharani Ponnada
+                    </div>
+                    <div class="post" style="padding-bottom:0;">
+                      Media and PR Manager
+                    </div>
+                    <div class="post" style="line-height:3vh;">
+                      +91 9346119502
+
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="row sadh">
+                  <div class="location">
+                    <div class="icon"><img src="{% static 'images/pin.png' %}" class="mloc" alt=""></div>
+                    <div class="yele">Student Activity Centre, IIT Bombay
+                      Powai, Mumbai, PIN - 400076</div>
+                  </div>
+                  <div class="location">
+                    <div class="icon"><img src="{% static 'images/email.png' %}" class="mloc" alt=""></div>
+                    <div class="yele">cr.abhyuday.iitbombay@gmail.com</div>
+                  </div>
+                </div>
+<div class="row display-flex justify-content-center">
+                <div style="width: 8vh;" >
+                    <a href="https://www.facebook.com/abhyuday.iitb/" target="/" class="fa fa-facebook" style="font-size: 2.5vh;"></a>
+                </div>
+                <div style="width: 8vh;">
+                    <a href="https://www.instagram.com/iitbombay_abhyuday/" target="/" class="fa fa-instagram" style="font-size: 2.5vh;"></a>
+                </div>
+                <div style="width: 8vh;">
+                    <a href="https://www.linkedin.com/company/abhyuday-iit-bombay/mycompany/" target="/" class="fa fa-linkedin" style="font-size: 2.5vh;"></a>
+                </div>
+                <div style="width: 8vh;">
+                    <a href="https://twitter.com/Abhyuday_IITB?s=07" target="/" class="fa fa-twitter" style="font-size: 2.5vh;"></a>
+                </div>
+                <div style="width: 8vh;">
+                    <a href="https://www.youtube.com/c/AbhyudayIITBombay" target="/" class="fa fa-youtube" style="font-size: 2.5vh;"></a>
+                </div>
+            </div>
+
+<div style="color:white;text-align:center;">© Abhyuday | IIT Bombay</div>
+              </div>
+           
+            
+                      
+            </div>
+          </div>
+        </div>
+          
+        
+        {% endif %}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r125/three.min.js"></script>
+  <script src="{% static 'js/script.js' %}"></script>
+  
+
+
+</html>

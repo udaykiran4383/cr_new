@@ -3,9 +3,12 @@
 {% block content %}
 {% load static %}
 
-<!-- <h1>Dashboard</h1> -->
-
 <div class="moreimp">
+    {% if task == True %}
+    <img src="{% static 'images/tick.png' %}" alt="" class="symb">&nbsp;&nbsp;&nbsp;&nbsp;TASK 1 IS DONE
+            {% else %}
+    {% comment %} <img src="{% static 'images/clock.png' %}" alt="" class="symb">  pendin {% endcomment %}
+
     <h2>Task 1 Submission </h2>
     <h4>Proof Submission:</h4>
     <form action="{% url 'task1' id=id %}" method="post">
@@ -33,7 +36,5 @@ Your are in team formation process kindly form the team and then do the task!
         {% endif %}
     {% endif %}
 </div>
-
-
-
+{%endif%}
 {% endblock content %}

@@ -20,8 +20,15 @@ class UserProfile(models.Model):
     ref = models.CharField(max_length=200, default="")
     bonus_ref = models.CharField(max_length=200, default="")   #for form
     proof = models.CharField(max_length=1000,default="")
+    proof2 = models.CharField(max_length=1000,default="")
+    proof3 = models.CharField(max_length=1000,default="")
+    proof4 = models.CharField(max_length=1000,default="")
     task1_status = models.BooleanField(default='False')
+    task2_status = models.BooleanField(default='False')
+    task3_status = models.BooleanField(default='False')
+    task4_status = models.BooleanField(default='False')
     refer_count = models.IntegerField(default="0")
+    is_individual = models.BooleanField(default='False')
     tname = models.CharField(max_length=200,default="")
     def __str__(self):
         return self.name

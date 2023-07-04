@@ -3,10 +3,10 @@ from . models import UserProfile , Leaderboard , Invite , Team, Blog
 from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
-class UserProfileAdmin(admin.ModelAdmin):
+class UserProfileAdmin(ImportExportModelAdmin):
     search_fields=('name','cr_id','ref',)
 
-class TeamAdmin(admin.ModelAdmin):
+class TeamAdmin(ImportExportModelAdmin):
     search_fields=('teamname','leader','crid1','member2','crid2','member3','crid3','member4','crid4')
 
 class NewTeamAdmin(ImportExportModelAdmin):
