@@ -1,29 +1,29 @@
-
 {% extends "user/base_dash.html" %}
 {% block content %}
 {% load static %}
-
+{% load socialaccount %}
 <!-- <h1>Dashboard</h1> -->
 
 
 <div class="moreimp">
-    <img src="{% static 'images/dash-car.png' %}" alt="" class="dash-car">
+    {% comment %} <img src="{% static 'images/dash-car.png' %}" alt="" class="dash-car"> {% endcomment %}
     {% comment %} <img src="{% static 'images/globe.png' %}" id="globe" alt=""> {% endcomment %}
-<!--    <div id="dots">
+    <!--    <div id="dots">
         <img src="{% static 'images/w1.png' %}" id="w1" alt="">
         <img src="{% static 'images/w1.png' %}" id="w1" alt="">
     </div>-->
 
-    <div class="row except" >
+    {% comment %} <div class="row except">
         <div class="row" id="hello">
             Hello <b>{{my.name}}</b>
         </div>
-	<div class="row" id="greet">
-Welcome to the College Representative Program by Abhyuday, IIT Bombay. It is great to have you as a member of the Abhyuday Family. Wishing you the best for every step in your journey.
+        <div class="row" id="greet">
+            Welcome to the College Representative Program by Abhyuday, IIT Bombay. It is great to have you as a member
+            of the Abhyuday Family. Wishing you the best for every step in your journey.
         </div>
-	
-<div class="row blink" id="greet" style="margin-top:3vh;">
-New Tasks Coming Soon !! Check out the tasks section !!
+
+        <div class="row blink" id="greet" style="margin-top:3vh;">
+            New Tasks Coming Soon !! Check out the tasks section !!
         </div>
 
         <div class="row" id="crid">
@@ -31,26 +31,61 @@ New Tasks Coming Soon !! Check out the tasks section !!
         </div>
         {% if my.is_individual == False%}
         <a href="{% url 'team' id=id %}" style="text-decoration:none;">
-        <div class="row" id="team" >
-            Team Details <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
-        </div>
-        {%endif%}
+            <div class="row" id="team">
+                Team Details <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
+            </div>
+            {%endif%}
         </a>
 
 
-        {% comment %} <div class="row" id="ref" style="width:fit-content;">
+        <div class="row" id="ref" style="width:fit-content;">
             Referral Code: {{my.ref}}
-        </div> {% endcomment %}
+        </div> 
 
-        {% comment %} <div class="row" id="faydadekh">
-            Use this code to invite your friends to the CR program and form a team with them to win exciting prizes and gifts 
-        </div> {% endcomment %}
+        <div class="row" id="faydadekh">
+            Use this code to invite your friends to the CR program and form a team with them to win exciting prizes and
+            gifts
+        </div> 
         <button class="row" id="tac" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Terms and Conditions <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
         </button>
-    </div>
-    
+    </div> {% endcomment %}
 
+    <section class="new">
+
+        <div class="d-flex flex-column hero-img">
+          <h1 class="hero-heading" id="hello">Hello {{my.name}}</h1>
+          <div class="row" id="greet">
+            Welcome to the College Representative Program by Abhyuday, IIT Bombay. It is great to have you as a member
+            of the Abhyuday Family. Wishing you the best for every step in your journey.
+        </div>
+        <div class="row blink" id="greet" style="margin-top:3vh;">
+            New Tasks Coming Soon !! Check out the tasks section !!
+        </div>
+        <button class="row" id="tac" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Terms and Conditions <img src="{% static 'images/down.png' %}" id="dropdown" alt="">
+        </button>
+          <img src="../../static/images/car_image.png" class="hero-image" alt="">
+          
+          <form action="{% provider_login_url 'google' %}" method="post">
+            {% csrf_token %}
+            <button type="submit" class="signup-button">
+              {% comment %} <span class="button-text"> {% endcomment %}
+                  <img src="/static/images/np.png" class="np-img" alt="">
+                  <div class="np-text">
+                      {{my.cr_id}}
+                  </div>
+              {% comment %} </span> {% endcomment %}
+            </button>
+          </form>
+
+          <!-- <button type="submit" id="bt" class="signup-button">
+            <span class="button-text">
+              SIGN IN
+            </span>
+          </button> -->
+        </div>
+      </section>
     <!-- <h3>Task 0</h3>
     <a href="team" class="btn btn-outline-success">Form Team</a>
 
@@ -60,52 +95,53 @@ New Tasks Coming Soon !! Check out the tasks section !!
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" id="diatc">
             <div class="modal-content" style="background: black;">
-            <div class="modal-header" style="border:none">
-                <div class="col-12" id="sam1">Terms and Conditions</div>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div class="row">
-                  <div class="tc">
-                      <div><img src="{% static 'images/gola.png' %}" alt=""></div>
-                      <div class="textc">The Certificate as College Representative will be given only if he/she/they fulfills the necessary conditions.</div>
-                  </div>
-              </div>
-              <div class="row">
-                <div class="tc">
-                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
-                    <div class="textc">More than one CR team can be selected from a college 
-                        depending upon the 	strength of the college.
+                <div class="modal-header" style="border:none">
+                    <div class="col-12" id="sam1">Terms and Conditions</div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="tc">
+                            <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                            <div class="textc">The Certificate as College Representative will be given only if
+                                he/she/they fulfills the necessary conditions.</div>
                         </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="tc">
-                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
-                    <div class="textc">Abhyuday, IIT Bombay shall send all the publicity 
-                        materials to the respective colleges, but will not be 
-                        liable for extra cost incurred by the CR team.</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="tc">
-                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
-                    <div class="textc">The Certificate shall be provided only on the successful 
-                        completion of the complete term.
+                    </div>
+                    <div class="row">
+                        <div class="tc">
+                            <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                            <div class="textc">More than one CR team can be selected from a college
+                                depending upon the strength of the college.
+                            </div>
                         </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="tc">
-                    <div><img src="{% static 'images/gola.png' %}" alt=""></div>
-                    <div class="textc">Abhyuday, IIT Bombay can change the terms and 
-                        conditions if deemed necessary.
+                    </div>
+                    <div class="row">
+                        <div class="tc">
+                            <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                            <div class="textc">Abhyuday, IIT Bombay shall send all the publicity
+                                materials to the respective colleges, but will not be
+                                liable for extra cost incurred by the CR team.</div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="tc">
+                            <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                            <div class="textc">The Certificate shall be provided only on the successful
+                                completion of the complete term.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="tc">
+                            <div><img src="{% static 'images/gola.png' %}" alt=""></div>
+                            <div class="textc">Abhyuday, IIT Bombay can change the terms and
+                                conditions if deemed necessary.
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-            </div>
-            
-          </div>
         </div>
     </div>
 </div>

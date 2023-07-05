@@ -14,8 +14,8 @@
   <body>
       <div class="fluid-container">
         <img src="{% static 'images/logo.png' %}" alt="" id="prologo">
-        <img src="{% static 'images/prow3.png' %}" alt="" id="prow3">
-        <img src="{% static 'images/prow4.png' %}" alt="" id="prow4">
+        {% comment %} <img src="{% static 'images/prow3.png' %}" alt="" id="prow3">
+        <img src="{% static 'images/prow4.png' %}" alt="" id="prow4"> {% endcomment %}
         <div class="inner-form" >
             <div class="row display-flex justify-content-center fill">Fill in the details below</div>
             <form action="{% url 'updateprofile' id=id %}" method="post">

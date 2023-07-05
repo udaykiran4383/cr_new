@@ -95,7 +95,7 @@ def updateprofile(request, id ):
         state_code = ""
         if (state == 'Delhi'):
             state_code = "DL"
-        elif (state == 'Maharastra'):
+        elif (state == 'Maharashtra'):
             state_code = "MH"
         elif (state == 'Uttar Pradesh'):
             state_code = "UP"
