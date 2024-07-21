@@ -23,8 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('cr_portal.urls')),
     path('accounts/', include('allauth.urls')),
-    path('api/',include('ap22.urls')),
-    path('ydpapi/',include('ydp.urls')),
-    path('festapi/',include('fest.urls')),
+
 ]
 

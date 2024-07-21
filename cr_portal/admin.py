@@ -1,27 +1,20 @@
 from django.contrib import admin
-from . models import UserProfile , Leaderboard , Invite , Team, Blog
 from import_export.admin import ImportExportModelAdmin
-# Register your models here.
+from .models import UserProfile, Student, College
 
 class UserProfileAdmin(ImportExportModelAdmin):
-    search_fields=('name','cr_id','ref',)
+    search_fields = ('name', 'cr_id', 'ref')
 
-class TeamAdmin(ImportExportModelAdmin):
-    search_fields=('teamname','leader','crid1','member2','crid2','member3','crid3','member4','crid4')
+admin.site.register(UserProfile, UserProfileAdmin)
 
-class NewTeamAdmin(ImportExportModelAdmin):
-    list_display = ('teamname','leader','crid1','member2','crid2','member3','crid3','member4','crid4')
+class StudentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'state', 'district', 'college')
+    search_fields = ('name', 'state', 'district')
 
+admin.site.register(Student, StudentAdmin)
 
-#@admin.register(UserProfile,Leaderboard,Invite,Team,Blog)
-#class ViewAdmin(ImportExportModelAdmin):
-#    pass
+class CollegeAdmin(admin.ModelAdmin):
+    list_display = ('name', 'district', 'state')
+    search_fields = ('name', 'district', 'state')
 
-
-admin.site.register(UserProfile,UserProfileAdmin)
-admin.site.register(Leaderboard)
-admin.site.register(Invite)
-admin.site.register(Team,TeamAdmin)
-admin.site.register(Blog)
-
-
+admin.site.register(College, CollegeAdmin)

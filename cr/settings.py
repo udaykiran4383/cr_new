@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'import_export',
     'corsheaders',
-    'ap22',
-    'ydp',
-    'fest',
+    
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -173,7 +171,7 @@ import os
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'cr.abhyuday.iitbombay@gmail.com'
 EMAIL_HOST_PASSWORD = 'rtajrwtogwxbqeew'
