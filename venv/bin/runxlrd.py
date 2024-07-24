@@ -1,4 +1,4 @@
-#!/Users/uday/vivo/CR-portal/venv/bin/python3.12
+#!/Users/uday/bhAAi/cr_new/venv/bin/python3.9
 # Copyright (c) 2005-2012 Stephen John Machin, Lingfo Pty Ltd
 # This script is part of the xlrd package, which is released under a
 # BSD-style licence.

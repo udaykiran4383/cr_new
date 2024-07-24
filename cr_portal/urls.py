@@ -8,7 +8,7 @@ urlpatterns = [
     path('logout',crview.logout,name="logout"),
     path('signup',crview.signup,name="signup"),
     path('dashboard/<int:id>',crview.dashboard,name="dashboard"),
-    path('updateprofile/<int:id>',crview.updateprofile,name="updateprofile"),
+    path('updateprofile/<int:id>/', crview.updateprofile, name='updateprofile'),
     path('myprofile/<int:id>',crview.myprofile ,name="myprofile"),
 
 

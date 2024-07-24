@@ -158,10 +158,15 @@ def add_college(request):
     
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=405)
 
+from django.shortcuts import redirect
+from django.core.mail import send_mail
+from .models import UserProfile, College
+
 @login_required
 def updateprofile(request, id):
     if request.method == 'POST':
         try:
+            print("POST request received")
             li = range(1000, 5000)
             cr_global = random.sample(li, 1)
             referral = random.sample(li, 1)
@@ -187,23 +192,33 @@ def updateprofile(request, id):
                 try:
                     college = College.objects.get(name=college_name, district=district, state=state)
                 except College.DoesNotExist:
-                    return render(request, 'user/profile.html', {'error': 'College not found. Please enter a new college.'})
+                    print("College not found")
+                    return render(request, 'user/profile.html', {'error': 'College not found. Please enter a new college.', 'id': id, 'email': email})
 
             cr_id = cr
             info = UserProfile(
-                cr_id=cr_id, name=name, email=email, phone=phone, whatsapp=whatsapp, 
+                cr_id=cr_id, name=name, email=email, phone=phone, whatsapp=whatsapp,
                 year=year, ref=ref, bonus_ref=bonus, state=state, district=district, college=college
             )
             info.save()
-            
-            send_registration_email(name, cr, ref, email)
+            print("UserProfile created successfully")
 
-            return redirect('dashboard', id=myid)
+            # Try sending email, but don't stop redirecting if it fails
+            try:
+                send_registration_email(name, cr, ref, email)
+            except Exception as e:
+                print(f"Error sending email: {e}")
+
+            return redirect('dashboard', id=id)
         except Exception as e:
             print(f"Error occurred: {e}")
-            return render(request, 'user/profile.html', {'error': str(e)})
-    return render(request, 'user/profile.html')
+            return render(request, 'user/profile.html', {'error': str(e), 'id': id, 'email': request.POST.get('email', '')})
+    else:
+        return render(request, 'user/profile.html', {'id': id, 'email': request.GET.get('email', '')})
 
+
+
+from django.core.mail import send_mail
 
 def send_registration_email(name, cr, ref, email):
     subject = "Congratulations for enrolling in CR Program of Abhyuday IIT Bombay"
@@ -214,7 +229,12 @@ def send_registration_email(name, cr, ref, email):
     You can share the following referral code with your friends from your college to form a team and with other friends to earn more points for your team. \nReferral Code - {ref} \n
     Lots of good wishes for your new endeavors with Abhyuday, IIT Bombay. \n"Do what you can, with what you have, where you are." -Theodore Roosevelt \n
     Regards, \nAbhyuday"""
-    send_mail(subject, message, 'cr.abhyuday.iitbombay@gmail.com', [email])
+    try:
+        send_mail(subject, message, 'cr.abhyuday.iitbombay@gmail.com', [email])
+        print("Email sent successfully")
+    except Exception as e:
+        print(f"Error sending email: {e}")
+
 
 @login_required
 def yourprofile(request, id):
@@ -289,4 +309,3 @@ Team Abhyuday
         )
 
     return HttpResponse("Done")
-
